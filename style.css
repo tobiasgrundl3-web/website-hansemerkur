@@ -7,12 +7,14 @@
    1. DESIGN TOKENS
 --------------------------------------------------------------- */
 :root {
-  /* Brand colors */
-  --c-green:        #00a544;
-  --c-green-dark:   #007a33;
-  --c-green-dim:    #005c26;
-  --c-green-light:  #e8f7ef;
-  --c-green-pale:   #f2fbf6;
+  /* Brand colors — HanseMerkur */
+  --c-green:        #006F51;
+  --c-green-dark:   #004D38;
+  --c-green-dim:    #003d2d;
+  --c-green-light:  #EEF7F4;
+  --c-green-pale:   #f5fbf9;
+  --c-orange:       #E8510A;
+  --c-orange-dark:  #c44008;
 
   /* Neutrals */
   --c-ink:          #111827;
@@ -181,7 +183,8 @@ input, textarea, select { font: inherit; }
     color var(--t-base),
     transform var(--t-fast),
     box-shadow var(--t-fast);
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
 }
 .btn:focus-visible {
   outline: 3px solid var(--c-green);
@@ -189,13 +192,13 @@ input, textarea, select { font: inherit; }
 }
 
 .btn--primary {
-  background: var(--c-green);
+  background: var(--c-orange);
   color: white;
-  border-color: var(--c-green);
+  border-color: var(--c-orange);
 }
 .btn--primary:hover {
-  background: var(--c-green-dark);
-  border-color: var(--c-green-dark);
+  background: var(--c-orange-dark);
+  border-color: var(--c-orange-dark);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -309,6 +312,10 @@ input, textarea, select { font: inherit; }
 .nav__cta-secondary { display: none; }
 @media (min-width: 960px) { .nav__cta-secondary { display: inline-flex; } }
 
+/* Hide the nav primary CTA on mobile — sticky bar handles it */
+.nav__actions .btn--primary { display: none; }
+@media (min-width: 768px) { .nav__actions .btn--primary { display: inline-flex; } }
+
 /* Hamburger */
 .nav__burger {
   display: flex;
@@ -418,8 +425,32 @@ input, textarea, select { font: inherit; }
 .hero__awards {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-2);
-  margin-bottom: var(--sp-6);
+  align-items: flex-end;
+  gap: var(--sp-4);
+  margin-top: var(--sp-8);
+}
+
+.hero__award-seal {
+  height: auto;
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0 0 0 / .35));
+  transition: transform var(--t-fast);
+}
+.hero__award-seal:hover { transform: scale(1.04); }
+
+.hero__price-tag {
+  display: inline-block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: white;
+  background: var(--c-orange);
+  border: 1px solid var(--c-orange-dark);
+  border-radius: var(--r-full);
+  padding: .3rem .9rem;
+  margin-bottom: var(--sp-4);
+  letter-spacing: .03em;
 }
 
 .hero__heading {
@@ -815,6 +846,72 @@ input, textarea, select { font: inherit; }
   margin-bottom: var(--sp-8);
 }
 
+/* Agent / Ansprechpartner Card */
+.agent-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  background: linear-gradient(135deg, var(--c-green) 0%, var(--c-green-dark) 100%);
+  border: 1px solid rgba(255 255 255 / .12);
+  border-radius: var(--r-xl);
+  padding: var(--sp-5) var(--sp-6);
+  margin-bottom: var(--sp-6);
+  box-shadow: 0 4px 20px rgba(0 0 0 / .25);
+}
+
+.agent-card__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(255 255 255 / .12);
+  border: 1.5px solid rgba(255 255 255 / .2);
+  border-radius: 50%;
+  color: white;
+}
+
+.agent-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.agent-card__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(255 255 255 / .7);
+  margin-bottom: 2px;
+}
+
+.agent-card__name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--sp-3);
+}
+
+.agent-card__contacts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.agent-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: rgba(255 255 255 / .9);
+  font-weight: 500;
+  transition: color var(--t-fast);
+  text-decoration: none;
+}
+.agent-card__link:hover { color: white; }
+
 .contact__channels {
   display: flex;
   flex-direction: column;
@@ -1040,10 +1137,10 @@ input, textarea, select { font: inherit; }
 .sticky-cta__btn:hover { background: var(--c-bg); }
 
 .sticky-cta__btn--green {
-  background: var(--c-green);
+  background: var(--c-orange);
   color: white;
 }
-.sticky-cta__btn--green:hover { background: var(--c-green-dark); }
+.sticky-cta__btn--green:hover { background: var(--c-orange-dark); }
 
 
 /* ---------------------------------------------------------------
@@ -1092,3 +1189,137 @@ input, textarea, select { font: inherit; }
   transition: top var(--t-fast);
 }
 .skip-link:focus { top: 0; }
+
+
+/* ---------------------------------------------------------------
+   16. RESPONSIVE OVERRIDES
+--------------------------------------------------------------- */
+
+/* Nav & sticky buttons always stay on one line */
+.nav__actions .btn,
+.nav__cta-secondary,
+.sticky-cta__btn { white-space: nowrap; }
+
+
+/* =============================================
+   MOBILE  ≤ 639px
+   ============================================= */
+@media (max-width: 639px) {
+
+  /* --- Section spacing --- */
+  .products,
+  .howto,
+  .service,
+  .faq,
+  .contact { padding-block: var(--sp-12); }
+
+  /* --- Section headings --- */
+  .section-heading { font-size: var(--fs-2xl); }
+  .section-sub {
+    font-size: var(--fs-base);
+    margin-bottom: var(--sp-8);
+  }
+
+  /* --- Hero --- */
+  .hero { min-height: auto; }
+  .hero__content { padding-block: var(--sp-10) var(--sp-12); }
+  .hero__awards { gap: var(--sp-3); margin-bottom: var(--sp-4); }
+  .hero__award-seal { max-height: 76px; }
+  .hero__heading { font-size: clamp(1.6rem, 7vw, 2.25rem); }
+  .hero__lead {
+    font-size: var(--fs-base);
+    margin-bottom: var(--sp-6);
+  }
+  .hero__cta-group {
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .hero__cta-group .btn { width: 100%; }
+
+  /* --- Products --- */
+  .products__group-label { font-size: var(--fs-xl); }
+  .product-card__actions {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .product-card__actions .btn { width: 100%; }
+
+  /* --- How-to --- */
+  .howto__grid { gap: var(--sp-8); }
+  .howto__actions {
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .howto__actions .btn { width: 100%; }
+
+  /* --- Service grid: 1 column on very small screens --- */
+  .service-grid { grid-template-columns: 1fr; }
+
+  /* --- FAQ --- */
+  .faq__btn {
+    padding: var(--sp-4);
+    font-size: var(--fs-sm);
+  }
+  .faq__answer { padding: 0 var(--sp-4) var(--sp-4); }
+
+  /* --- Contact --- */
+  .contact__heading { font-size: var(--fs-2xl); }
+  .contact__lead { font-size: var(--fs-base); }
+  .agent-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+  }
+  .agent-card__icon { width: 46px; height: 46px; }
+  .contact-form { padding: var(--sp-5); border-radius: var(--r-xl); }
+  .contact-form__title { font-size: var(--fs-lg); margin-bottom: var(--sp-4); }
+
+  /* --- Footer --- */
+  .footer__inner { padding-block: var(--sp-10); gap: var(--sp-8); }
+}
+
+
+/* =============================================
+   EXTRA SMALL PHONE  ≤ 374px
+   ============================================= */
+@media (max-width: 374px) {
+  .hero__award-seal { max-height: 58px; }
+  .hero__price-tag { font-size: var(--fs-xs); padding: .25rem .7rem; }
+  .section-heading { font-size: var(--fs-xl); }
+  .contact-form { padding: var(--sp-4); }
+  .agent-card { padding: var(--sp-3); }
+  .faq__btn { padding: var(--sp-3); }
+  .products, .howto, .service, .faq, .contact { padding-block: var(--sp-10); }
+}
+
+
+/* =============================================
+   TABLET  640px – 1023px
+   ============================================= */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  /* Section spacing slightly reduced */
+  .products, .howto, .service, .faq, .contact { padding-block: var(--sp-16); }
+
+  /* Hero: unlock content width */
+  .hero__content { max-width: 100%; padding-block: var(--sp-16) var(--sp-20); }
+  .hero__lead { max-width: 100%; }
+
+  /* Product card buttons: stack on tablet too */
+  .product-card__actions {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .product-card__actions .btn { width: 100%; }
+
+  /* How-to actions: wrap nicely */
+  .howto__actions { flex-wrap: wrap; }
+  .howto__actions .btn { flex: 1 1 200px; }
+
+  /* Contact form padding */
+  .contact-form { padding: var(--sp-6); }
+
+  /* Footer 2-column is handled, just reduce gap */
+  .footer__inner { gap: var(--sp-8); }
+}
