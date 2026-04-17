@@ -469,6 +469,29 @@ input, textarea, select { font: inherit; }
 }
 .mobile-menu__links a:hover { color: var(--c-green); }
 
+.mobile-menu__nav {
+  display: flex;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--c-border);
+}
+.mobile-menu__nav-link {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--c-ink);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-md);
+  border: 1px solid var(--c-border);
+  flex: 1;
+  text-align: center;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.mobile-menu__nav-link:hover {
+  background: var(--c-green-light);
+  color: var(--c-green);
+  border-color: var(--c-green);
+}
+
 
 /* ---------------------------------------------------------------
    6. HERO
@@ -1635,6 +1658,12 @@ input, textarea, select { font: inherit; }
 }
 .sticky-cta__btn--green:hover { background: var(--c-orange-dark); }
 
+.sticky-cta__btn--orange {
+  background: var(--c-orange);
+  color: white;
+}
+.sticky-cta__btn--orange:hover { background: var(--c-orange-dark); }
+
 
 /* ---------------------------------------------------------------
    FAB – Floating Contact Buttons (bottom-right)
@@ -1649,9 +1678,9 @@ input, textarea, select { font: inherit; }
   gap: 0.75rem;
 }
 
-/* Hide on mobile — sticky-cta already handles that */
+/* On mobile: show above the sticky-cta bar */
 @media (max-width: 767px) {
-  .fab-group { display: none; }
+  .fab-group { bottom: calc(60px + 1rem); }
 }
 
 .fab {
