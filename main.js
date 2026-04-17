@@ -196,7 +196,61 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ---------------------------------------------------------------
-   5. SMOOTH SCROLL for same-page anchor links
+   5. COMPARISON TABLE — collapsible section rows
+--------------------------------------------------------------- */
+(function initComparisonTable() {
+  $$('.comp-section-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const target = btn.dataset.target;
+
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+
+      $$(`tr[data-group="${target}"]`).forEach(row => {
+        row.hidden = isExpanded;
+      });
+    });
+  });
+})();
+
+
+/* ---------------------------------------------------------------
+   6. COOKIE BANNER
+   Shows on first visit, dismissed via localStorage.
+--------------------------------------------------------------- */
+(function initCookieBanner() {
+  if (localStorage.getItem('cookieConsent')) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Cookie-Einstellungen');
+  banner.innerHTML = `
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Wir verwenden Cookies, um Ihnen das beste Nutzungserlebnis auf unserer Website zu bieten und unseren Datenverkehr zu analysieren.
+        Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="cookie-banner__btn--accept" id="cookieAccept">Alle akzeptieren</button>
+        <button class="cookie-banner__btn--decline" id="cookieDecline">Nur notwendige</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  function dismiss() {
+    banner.remove();
+    localStorage.setItem('cookieConsent', 'true');
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', dismiss);
+  document.getElementById('cookieDecline').addEventListener('click', dismiss);
+})();
+
+
+/* ---------------------------------------------------------------
+   7. SMOOTH SCROLL for same-page anchor links
    Accounts for sticky nav height.
 --------------------------------------------------------------- */
 (function initSmoothScroll() {
