@@ -261,6 +261,19 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     const val = params.get(key);
     if (val) sessionStorage.setItem(key, val);
   });
+
+  // Fire webhook on every page with UTM data
+  const payload = { seite: window.location.href, zeitstempel: new Date().toISOString() };
+  UTM_KEYS.forEach(key => {
+    const val = params.get(key) || sessionStorage.getItem(key) || '';
+    if (val) payload[key] = val;
+  });
+
+  fetch('https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
 })();
 
 
