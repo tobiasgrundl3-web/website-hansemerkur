@@ -171,14 +171,89 @@
     });
   });
 
+  /* ── UTM hidden fields ───────────────────────────────────── */
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
+
+  function populateUtmFields() {
+    const params = new URLSearchParams(window.location.search);
+    UTM_KEYS.forEach(key => {
+      const val = sessionStorage.getItem(key) || params.get(key) || '';
+      const el = document.getElementById(key);
+      if (el) el.value = val;
+    });
+  }
+
+  /* ── Collect all form data for webhook ───────────────────── */
+  function collectFormData() {
+    const data = {};
+
+    // Hidden UTM fields
+    UTM_KEYS.forEach(key => {
+      const el = document.getElementById(key);
+      if (el && el.value) data[key] = el.value;
+    });
+
+    // Text / email / tel / date inputs → label as key
+    form.querySelectorAll('input.form-input').forEach(input => {
+      if (input.closest('.is-hidden')) return;
+      const field = input.closest('.form-field');
+      let key = (field?.querySelector('label, .form-label, .pill-group-label')
+        ?.textContent.trim().replace(/\s*\*\s*$/, '').trim()
+        .toLowerCase().replace(/[^a-z0-9]+/gi, '_'))
+        || input.placeholder.replace(/[^a-z0-9]+/gi, '_').toLowerCase()
+        || input.type;
+      if (key in data) key += '_2';
+      data[key] = input.value;
+    });
+
+    // Pill groups
+    form.querySelectorAll('.pill-group[data-group]').forEach(group => {
+      if (group.closest('.is-hidden')) return;
+      if (group.dataset.value) data[group.dataset.group] = group.dataset.value;
+    });
+
+    // Check cards (multi-select)
+    const checked = [];
+    form.querySelectorAll('.check-card.is-checked').forEach(card => {
+      if (card.classList.contains('is-hidden')) return;
+      const txt = card.querySelector('.check-card__text')?.textContent.trim();
+      if (txt) checked.push(txt);
+    });
+    if (checked.length) data.versicherung = checked.join(', ');
+
+    // Meta
+    data.seite    = window.location.pathname.split('/').pop() || 'index.html';
+    data.zeitstempel = new Date().toISOString();
+
+    return data;
+  }
+
   /* ── Submit ──────────────────────────────────────────────── */
+  const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/';
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!validateStep(current)) return;
-    window.location.href = 'danke.html';
+
+    const btn = form.querySelector('.btn-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
+
+    const payload = collectFormData();
+
+    Promise.race([
+      fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }),
+      new Promise(resolve => setTimeout(resolve, 4000))
+    ])
+      .catch(() => {})
+      .then(() => { window.location.href = 'danke.html'; });
   });
 
   /* ── Init ────────────────────────────────────────────────── */
+  populateUtmFields();
   showStep(0);
 
 })();

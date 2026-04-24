@@ -250,6 +250,21 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ---------------------------------------------------------------
+   8. UTM PARAMETER CAPTURE
+   Reads UTM params + gclid from URL and stores in sessionStorage
+   so form pages can pick them up as hidden fields.
+--------------------------------------------------------------- */
+(function initUtmCapture() {
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
+  const params = new URLSearchParams(window.location.search);
+  UTM_KEYS.forEach(key => {
+    const val = params.get(key);
+    if (val) sessionStorage.setItem(key, val);
+  });
+})();
+
+
+/* ---------------------------------------------------------------
    7. SMOOTH SCROLL for same-page anchor links
    Accounts for sticky nav height.
 --------------------------------------------------------------- */
