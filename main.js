@@ -262,6 +262,22 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     if (val) sessionStorage.setItem(key, val);
   });
 
+  // Append UTMs to all internal links on the page
+  const utmString = UTM_KEYS
+    .map(key => ({ key, val: params.get(key) || sessionStorage.getItem(key) || '' }))
+    .filter(({ val }) => val)
+    .map(({ key, val }) => `${key}=${encodeURIComponent(val)}`)
+    .join('&');
+
+  if (utmString) {
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('#')) return;
+      const sep = href.includes('?') ? '&' : '?';
+      link.setAttribute('href', href + sep + utmString);
+    });
+  }
+
   // Fire webhook on every page with UTM data
   const payload = { seite: window.location.href, zeitstempel: new Date().toISOString() };
   UTM_KEYS.forEach(key => {
