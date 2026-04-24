@@ -221,8 +221,16 @@
     });
     if (checked.length) data.versicherung = checked.join(', ');
 
+    // gclid direkt aus URL als Fallback
+    if (!data.gclid) {
+      const gclid = new URLSearchParams(window.location.search).get('gclid') || sessionStorage.getItem('gclid') || '';
+      if (gclid) data.gclid = gclid;
+    }
+
     // Meta
-    data.seite    = window.location.pathname.split('/').pop() || 'index.html';
+    const page = window.location.pathname.split('/').pop() || '';
+    data.formular = page.includes('katze') ? 'Katze' : page.includes('hund') ? 'Hund' : 'Allgemein';
+    data.seite = page;
     data.zeitstempel = new Date().toISOString();
 
     return data;
