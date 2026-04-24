@@ -240,16 +240,8 @@
 
     const payload = collectFormData();
 
-    Promise.race([
-      fetch(WEBHOOK, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams(payload)
-      }),
-      new Promise(resolve => setTimeout(resolve, 4000))
-    ])
-      .catch(() => {})
-      .then(() => { window.location.href = 'danke.html'; });
+    navigator.sendBeacon(WEBHOOK, new URLSearchParams(payload));
+    window.location.href = 'danke.html';
   });
 
   /* ── Init ────────────────────────────────────────────────── */
