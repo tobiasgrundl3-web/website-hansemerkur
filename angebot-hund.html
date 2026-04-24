@@ -157,38 +157,38 @@
                    STEP 2 — Hunde-Daten
                    ══════════════════════════════ -->
               <div class="form-step" data-step="2">
-                <h2 class="form-step__title">Daten deines Hundes</h2>
+                <h2 class="form-step__title">Angaben zum Tier</h2>
 
-                <div class="form-field">
-                  <label class="form-label">Name des Hundes <span class="form-label__req">*</span></label>
-                  <input type="text" class="form-input" placeholder="z.B. Bello" required autocomplete="off">
-                  <p class="field-error">Bitte gib den Namen deines Hundes ein.</p>
-                </div>
-                <div class="form-field">
-                  <label class="form-label">Rasse <span class="form-label__req">*</span></label>
-                  <input type="text" class="form-input" placeholder="z.B. Labrador Retriever" required autocomplete="off">
-                  <p class="field-error">Bitte gib die Rasse ein.</p>
-                </div>
-                <div class="form-field">
-                  <label class="form-label">Geburtsdatum <span class="form-label__req">*</span></label>
-                  <input type="date" class="form-input" required>
-                  <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
-                </div>
-                <div class="form-field">
-                  <span class="pill-group-label">Geschlecht <span class="form-label__req">*</span></span>
-                  <div class="pill-group" data-group="geschlecht" data-required>
-                    <button type="button" class="pill-btn" data-value="maennlich">Männlich</button>
-                    <button type="button" class="pill-btn" data-value="weiblich">Weiblich</button>
+                <div class="form-grid-2">
+                  <div class="form-field">
+                    <label class="form-label">Name deines Tieres <span class="form-label__req">*</span></label>
+                    <input type="text" class="form-input" placeholder="z.B. Bello" required autocomplete="off">
+                    <p class="field-error">Bitte gib den Namen deines Tieres ein.</p>
                   </div>
-                  <p class="field-error">Bitte wähle das Geschlecht aus.</p>
+                  <div class="form-field">
+                    <label class="form-label">Geburtsdatum deines Tieres <span class="form-label__req">*</span></label>
+                    <input type="date" class="form-input" required>
+                    <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
+                  </div>
                 </div>
                 <div class="form-field">
-                  <span class="pill-group-label">Kastriert? <span class="form-label__req">*</span></span>
-                  <div class="pill-group" data-group="kastriert" data-required>
-                    <button type="button" class="pill-btn" data-value="ja">Ja</button>
-                    <button type="button" class="pill-btn" data-value="nein">Nein</button>
+                  <span class="pill-group-label">Dein Tier ist</span>
+                  <div class="pill-group" data-group="tierart">
+                    <button type="button" class="pill-btn" data-value="reinrassig">reinrassig</button>
+                    <button type="button" class="pill-btn" data-value="mischling">ein Mischling</button>
                   </div>
-                  <p class="field-error">Bitte wähle eine Option aus.</p>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Rasse deines Tieres</label>
+                  <input type="text" class="form-input" placeholder="Rasse wenn bekannt, ansonsten Mischling" autocomplete="off">
+                </div>
+                <div class="form-field">
+                  <span class="pill-group-label">Wie ist dein Tier registriert?</span>
+                  <div class="pill-group" data-group="registrierung">
+                    <button type="button" class="pill-btn" data-value="chip">Chip</button>
+                    <button type="button" class="pill-btn" data-value="taetowierung">Tätowierung</button>
+                    <button type="button" class="pill-btn" data-value="nicht-registriert">nicht registriert</button>
+                  </div>
                 </div>
 
                 <div class="form-nav">

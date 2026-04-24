@@ -175,79 +175,78 @@
 
                 <!-- DOG FIELDS -->
                 <div id="fields-hund" class="is-hidden">
-                  <div class="form-field">
-                    <label class="form-label">Name des Hundes <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="z.B. Bello" autocomplete="off">
-                    <p class="field-error">Bitte gib den Namen deines Hundes ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label">Rasse <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="z.B. Labrador Retriever" autocomplete="off">
-                    <p class="field-error">Bitte gib die Rasse ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label">Geburtsdatum <span class="form-label__req">*</span></label>
-                    <input type="date" class="form-input">
-                    <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <span class="pill-group-label">Geschlecht <span class="form-label__req">*</span></span>
-                    <div class="pill-group" data-group="geschlecht-hund" data-required>
-                      <button type="button" class="pill-btn" data-value="maennlich">Männlich</button>
-                      <button type="button" class="pill-btn" data-value="weiblich">Weiblich</button>
+                  <div class="form-grid-2">
+                    <div class="form-field">
+                      <label class="form-label">Name deines Tieres <span class="form-label__req">*</span></label>
+                      <input type="text" class="form-input" placeholder="z.B. Bello" autocomplete="off">
+                      <p class="field-error">Bitte gib den Namen deines Tieres ein.</p>
                     </div>
-                    <p class="field-error">Bitte wähle das Geschlecht aus.</p>
+                    <div class="form-field">
+                      <label class="form-label">Geburtsdatum deines Tieres <span class="form-label__req">*</span></label>
+                      <input type="date" class="form-input">
+                      <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
+                    </div>
                   </div>
                   <div class="form-field">
-                    <span class="pill-group-label">Kastriert? <span class="form-label__req">*</span></span>
-                    <div class="pill-group" data-group="kastriert-hund" data-required>
-                      <button type="button" class="pill-btn" data-value="ja">Ja</button>
-                      <button type="button" class="pill-btn" data-value="nein">Nein</button>
+                    <span class="pill-group-label">Dein Tier ist</span>
+                    <div class="pill-group" data-group="tierart-hund">
+                      <button type="button" class="pill-btn" data-value="reinrassig">reinrassig</button>
+                      <button type="button" class="pill-btn" data-value="mischling">ein Mischling</button>
                     </div>
-                    <p class="field-error">Bitte wähle eine Option aus.</p>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Rasse deines Tieres</label>
+                    <input type="text" class="form-input" placeholder="Rasse wenn bekannt, ansonsten Mischling" autocomplete="off">
+                  </div>
+                  <div class="form-field">
+                    <span class="pill-group-label">Wie ist dein Tier registriert?</span>
+                    <div class="pill-group" data-group="registrierung-hund">
+                      <button type="button" class="pill-btn" data-value="chip">Chip</button>
+                      <button type="button" class="pill-btn" data-value="taetowierung">Tätowierung</button>
+                      <button type="button" class="pill-btn" data-value="nicht-registriert">nicht registriert</button>
+                    </div>
                   </div>
                 </div>
 
                 <!-- CAT FIELDS -->
                 <div id="fields-katze" class="is-hidden">
-                  <div class="form-field">
-                    <label class="form-label">Name der Katze <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="z.B. Luna" autocomplete="off">
-                    <p class="field-error">Bitte gib den Namen deiner Katze ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label">Rasse <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="z.B. Europäisch Kurzhaar" autocomplete="off">
-                    <p class="field-error">Bitte gib die Rasse ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <label class="form-label">Geburtsdatum <span class="form-label__req">*</span></label>
-                    <input type="date" class="form-input">
-                    <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
-                  </div>
-                  <div class="form-field">
-                    <span class="pill-group-label">Geschlecht <span class="form-label__req">*</span></span>
-                    <div class="pill-group" data-group="geschlecht-katze" data-required>
-                      <button type="button" class="pill-btn" data-value="maennlich">Männlich</button>
-                      <button type="button" class="pill-btn" data-value="weiblich">Weiblich</button>
+                  <div class="form-grid-2">
+                    <div class="form-field">
+                      <label class="form-label">Name deiner Katze <span class="form-label__req">*</span></label>
+                      <input type="text" class="form-input" placeholder="Name" autocomplete="off">
+                      <p class="field-error">Bitte gib den Namen deiner Katze ein.</p>
                     </div>
-                    <p class="field-error">Bitte wähle das Geschlecht aus.</p>
+                    <div class="form-field">
+                      <label class="form-label">Geburtsdatum deiner Katze <span class="form-label__req">*</span></label>
+                      <input type="date" class="form-input">
+                      <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
+                    </div>
                   </div>
                   <div class="form-field">
-                    <span class="pill-group-label">Kastriert? <span class="form-label__req">*</span></span>
-                    <div class="pill-group" data-group="kastriert-katze" data-required>
-                      <button type="button" class="pill-btn" data-value="ja">Ja</button>
-                      <button type="button" class="pill-btn" data-value="nein">Nein</button>
+                    <span class="pill-group-label">Deine Katze ist</span>
+                    <div class="pill-group" data-group="tierart-katze">
+                      <button type="button" class="pill-btn" data-value="reinrassig">reinrassig</button>
+                      <button type="button" class="pill-btn" data-value="mischling">ein Mischling</button>
                     </div>
-                    <p class="field-error">Bitte wähle eine Option aus.</p>
                   </div>
                   <div class="form-field">
-                    <span class="pill-group-label">Freigänger? <span class="form-label__req">*</span></span>
-                    <div class="pill-group" data-group="freigaenger" data-required>
-                      <button type="button" class="pill-btn" data-value="ja">Ja</button>
-                      <button type="button" class="pill-btn" data-value="nein">Nein</button>
+                    <label class="form-label">Rasse deiner Katze</label>
+                    <input type="text" class="form-input" placeholder="Rasse wenn bekannt, ansonsten Mischling" autocomplete="off">
+                  </div>
+                  <div class="form-field">
+                    <span class="pill-group-label">Wie wird die Katze gehalten?</span>
+                    <div class="pill-group" data-group="haltung-katze">
+                      <button type="button" class="pill-btn" data-value="wohnungskatze">als Wohnungskatze</button>
+                      <button type="button" class="pill-btn" data-value="freigaenger">als Freigänger</button>
                     </div>
-                    <p class="field-error">Bitte wähle eine Option aus.</p>
+                  </div>
+                  <div class="form-field">
+                    <span class="pill-group-label">Wie ist deine Katze registriert?</span>
+                    <div class="pill-group" data-group="registrierung-katze">
+                      <button type="button" class="pill-btn" data-value="chip">Chip</button>
+                      <button type="button" class="pill-btn" data-value="taetowierung">Tätowierung</button>
+                      <button type="button" class="pill-btn" data-value="nicht-registriert">nicht registriert</button>
+                    </div>
                   </div>
                 </div>
 
