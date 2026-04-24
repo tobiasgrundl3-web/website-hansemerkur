@@ -248,7 +248,11 @@
 
     const payload = collectFormData();
 
-    navigator.sendBeacon(WEBHOOK, new URLSearchParams(payload));
+    fetch(WEBHOOK, {
+      method: 'POST',
+      keepalive: true,
+      body: new URLSearchParams(payload)
+    }).catch(() => {});
     window.location.href = 'danke.html';
   });
 
