@@ -243,8 +243,8 @@
     Promise.race([
       fetch(WEBHOOK, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        mode: 'no-cors',
+        body: new URLSearchParams(payload)
       }),
       new Promise(resolve => setTimeout(resolve, 4000))
     ])
