@@ -239,7 +239,7 @@
   /* ── Submit ──────────────────────────────────────────────── */
   const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/';
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!validateStep(current)) return;
 
@@ -248,11 +248,17 @@
 
     const payload = collectFormData();
 
-    fetch(WEBHOOK, {
-      method: 'POST',
-      keepalive: true,
-      body: new URLSearchParams(payload)
-    }).catch(() => {});
+    try {
+      await Promise.race([
+        fetch(WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(payload).toString()
+        }),
+        new Promise(resolve => setTimeout(resolve, 4000))
+      ]);
+    } catch (err) { /* silent */ }
+
     window.location.href = 'danke.html';
   });
 
