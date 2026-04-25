@@ -177,7 +177,7 @@
   function populateUtmFields() {
     const params = new URLSearchParams(window.location.search);
     UTM_KEYS.forEach(key => {
-      const val = sessionStorage.getItem(key) || params.get(key) || '';
+      const val = localStorage.getItem(key) || params.get(key) || '';
       const el = document.getElementById(key);
       if (el) el.value = val;
     });
@@ -223,7 +223,7 @@
 
     // gclid direkt aus URL als Fallback
     if (!data.gclid) {
-      const gclid = new URLSearchParams(window.location.search).get('gclid') || sessionStorage.getItem('gclid') || '';
+      const gclid = new URLSearchParams(window.location.search).get('gclid') || localStorage.getItem('gclid') || '';
       if (gclid) data.gclid = gclid;
     }
 

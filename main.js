@@ -257,14 +257,16 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 (function initUtmCapture() {
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
   const params = new URLSearchParams(window.location.search);
+
+  // Store in localStorage so gclid survives redirects and tab restores
   UTM_KEYS.forEach(key => {
     const val = params.get(key);
-    if (val) sessionStorage.setItem(key, val);
+    if (val) localStorage.setItem(key, val);
   });
 
   // Append UTMs to all internal links on the page
   const utmString = UTM_KEYS
-    .map(key => ({ key, val: params.get(key) || sessionStorage.getItem(key) || '' }))
+    .map(key => ({ key, val: params.get(key) || localStorage.getItem(key) || '' }))
     .filter(({ val }) => val)
     .map(({ key, val }) => `${key}=${encodeURIComponent(val)}`)
     .join('&');
@@ -281,7 +283,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   // Fire webhook on every page with UTM data
   const payload = { seite: window.location.href, zeitstempel: new Date().toISOString() };
   UTM_KEYS.forEach(key => {
-    const val = params.get(key) || sessionStorage.getItem(key) || '';
+    const val = params.get(key) || localStorage.getItem(key) || '';
     if (val) payload[key] = val;
   });
 
