@@ -221,11 +221,8 @@
     });
     if (checked.length) data.versicherung = checked.join(', ');
 
-    // gclid direkt aus URL als Fallback
-    if (!data.gclid) {
-      const gclid = new URLSearchParams(window.location.search).get('gclid') || localStorage.getItem('gclid') || '';
-      if (gclid) data.gclid = gclid;
-    }
+    // gclid — direkt aus localStorage, immer im Payload
+    data.gclid = new URLSearchParams(window.location.search).get('gclid') || localStorage.getItem('gclid') || '';
 
     // Meta
     const page = window.location.pathname.split('/').pop() || '';

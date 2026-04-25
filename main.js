@@ -258,11 +258,15 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
   const params = new URLSearchParams(window.location.search);
 
-  // Store in localStorage so gclid survives redirects and tab restores
+  // Store UTMs in localStorage so they survive redirects and tab restores
   UTM_KEYS.forEach(key => {
     const val = params.get(key);
     if (val) localStorage.setItem(key, val);
   });
+
+  // gclid explizit sichern
+  const gclid = params.get('gclid');
+  if (gclid) localStorage.setItem('gclid', gclid);
 
   // Append UTMs to all internal links on the page
   const utmString = UTM_KEYS
