@@ -47,6 +47,9 @@
   function onGroupChange(groupName, value) {
     /* Animal type toggle on /angebot */
     if (groupName === 'tier') {
+      const tierAuswahl = document.getElementById('tier_auswahl_hidden');
+      if (tierAuswahl) tierAuswahl.value = value;
+
       const haftCard  = document.getElementById('haftpflicht-card');
       const dogFields = document.getElementById('fields-hund');
       const catFields = document.getElementById('fields-katze');
@@ -193,13 +196,14 @@
       if (el && el.value) data[key] = el.value;
     });
 
-    // Text / email / tel / date inputs → label as key
+    // Text / email / tel / date inputs → name attribute (preferred) or label as key
     form.querySelectorAll('input.form-input').forEach(input => {
       if (input.closest('.is-hidden')) return;
       const field = input.closest('.form-field');
-      let key = (field?.querySelector('label, .form-label, .pill-group-label')
-        ?.textContent.trim().replace(/\s*\*\s*$/, '').trim()
-        .toLowerCase().replace(/[^a-z0-9]+/gi, '_'))
+      let key = input.name
+        || (field?.querySelector('label, .form-label, .pill-group-label')
+          ?.textContent.trim().replace(/\s*\*\s*$/, '').trim()
+          .toLowerCase().replace(/[^a-z0-9]+/gi, '_'))
         || input.placeholder.replace(/[^a-z0-9]+/gi, '_').toLowerCase()
         || input.type;
       if (key in data) key += '_2';

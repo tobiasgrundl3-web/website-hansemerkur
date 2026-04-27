@@ -103,12 +103,17 @@
           </div>
 
           <form id="hmForm" novalidate>
-            <input type="hidden" id="utm_source"   name="utm_source">
-            <input type="hidden" id="utm_medium"   name="utm_medium">
-            <input type="hidden" id="utm_campaign" name="utm_campaign">
-            <input type="hidden" id="utm_content"  name="utm_content">
-            <input type="hidden" id="utm_term"     name="utm_term">
-            <input type="hidden" id="gclid"        name="gclid">
+            <input type="hidden" id="utm_source"      name="utm_source">
+            <input type="hidden" id="utm_medium"      name="utm_medium">
+            <input type="hidden" id="utm_campaign"    name="utm_campaign">
+            <input type="hidden" id="utm_content"     name="utm_content">
+            <input type="hidden" id="utm_term"        name="utm_term">
+            <input type="hidden" id="gclid"           name="gclid">
+            <input type="hidden" name="tierart_formular" value="Katze">
+            <input type="hidden" name="versicherung"  id="versicherung_hidden">
+            <input type="hidden" name="tierart"       id="tierart_hidden">
+            <input type="hidden" name="haltung"       id="haltung_hidden">
+            <input type="hidden" name="registrierung" id="registrierung_hidden">
             <div class="form-card">
 
               <!-- ══════════════════════════════
@@ -155,12 +160,12 @@
                 <div class="form-grid-2">
                   <div class="form-field">
                     <label class="form-label">Name deiner Katze <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="Name" required autocomplete="off">
+                    <input type="text" class="form-input" name="name_tier" placeholder="Name" required autocomplete="off">
                     <p class="field-error">Bitte gib den Namen deiner Katze ein.</p>
                   </div>
                   <div class="form-field">
                     <label class="form-label">Geburtsdatum deiner Katze <span class="form-label__req">*</span></label>
-                    <input type="date" class="form-input" required>
+                    <input type="date" class="form-input" name="geburtsdatum_tier" required>
                     <p class="field-error">Bitte gib das Geburtsdatum ein.</p>
                   </div>
                 </div>
@@ -173,7 +178,7 @@
                 </div>
                 <div class="form-field">
                   <label class="form-label">Rasse deiner Katze</label>
-                  <input type="text" class="form-input" placeholder="Rasse wenn bekannt, ansonsten Mischling" autocomplete="off">
+                  <input type="text" class="form-input" name="rasse_tier" placeholder="Rasse wenn bekannt, ansonsten Mischling" autocomplete="off">
                 </div>
                 <div class="form-field">
                   <span class="pill-group-label">Wie wird die Katze gehalten?</span>
@@ -212,29 +217,29 @@
                 <div class="form-grid-2">
                   <div class="form-field">
                     <label class="form-label">Vorname <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="Max" required autocomplete="given-name">
+                    <input type="text" class="form-input" name="vorname" placeholder="Max" required autocomplete="given-name">
                     <p class="field-error">Bitte gib deinen Vornamen ein.</p>
                   </div>
                   <div class="form-field">
                     <label class="form-label">Nachname <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="Mustermann" required autocomplete="family-name">
+                    <input type="text" class="form-input" name="nachname" placeholder="Mustermann" required autocomplete="family-name">
                     <p class="field-error">Bitte gib deinen Nachnamen ein.</p>
                   </div>
                 </div>
                 <div class="form-field">
                   <label class="form-label">E-Mail-Adresse <span class="form-label__req">*</span></label>
-                  <input type="email" class="form-input" placeholder="max@beispiel.de" required autocomplete="email">
+                  <input type="email" class="form-input" name="e_mail_adresse" placeholder="max@beispiel.de" required autocomplete="email">
                   <p class="field-error">Bitte gib eine gültige E-Mail-Adresse ein.</p>
                 </div>
                 <div class="form-grid-2">
                   <div class="form-field">
                     <label class="form-label">Telefonnummer <span class="form-label__req">*</span></label>
-                    <input type="tel" class="form-input" placeholder="+49 123 456789" required autocomplete="tel">
+                    <input type="tel" class="form-input" name="telefonnummer" placeholder="+49 123 456789" required autocomplete="tel">
                     <p class="field-error">Bitte gib deine Telefonnummer ein.</p>
                   </div>
                   <div class="form-field">
                     <label class="form-label">Postleitzahl <span class="form-label__req">*</span></label>
-                    <input type="text" class="form-input" placeholder="12345" required autocomplete="postal-code" maxlength="5" inputmode="numeric">
+                    <input type="text" class="form-input" name="plz" placeholder="12345" required autocomplete="postal-code" maxlength="5" inputmode="numeric">
                     <p class="field-error">Bitte gib deine PLZ ein.</p>
                   </div>
                 </div>
