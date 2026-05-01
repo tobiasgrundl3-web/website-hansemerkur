@@ -8,10 +8,10 @@
 --------------------------------------------------------------- */
 :root {
   /* Brand colors — HanseMerkur */
-  --c-green:        #006F51;
-  --c-green-dark:   #004D38;
+  --c-green:        #00a075;
+  --c-green-dark:   #005e52;
   --c-green-dim:    #003d2d;
-  --c-green-light:  #EEF7F4;
+  --c-green-light:  #edf6f2;
   --c-green-pale:   #f5fbf9;
   --c-orange:       #E8510A;
   --c-orange-dark:  #c44008;
@@ -26,7 +26,7 @@
   --c-dark:         #0f172a;
 
   /* Typography */
-  --font:           'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font:           Arial, sans-serif;
   --fs-xs:          0.75rem;
   --fs-sm:          0.875rem;
   --fs-base:        1rem;
