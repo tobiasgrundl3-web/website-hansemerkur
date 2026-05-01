@@ -248,17 +248,28 @@
     if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
 
     const payload = collectFormData();
+    const body = new URLSearchParams(payload).toString();
 
-    try {
-      await Promise.race([
-        fetch(WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(payload).toString()
-        }),
-        new Promise(resolve => setTimeout(resolve, 4000))
-      ]);
-    } catch (err) { /* silent */ }
+    /* sendBeacon fires even during page unload – most reliable for webhooks */
+    const beaconSent = typeof navigator.sendBeacon === 'function'
+      && navigator.sendBeacon(WEBHOOK, new Blob([body], { type: 'application/x-www-form-urlencoded' }));
+
+    if (!beaconSent) {
+      /* Fallback: fetch with no-cors so CORS errors never block the send */
+      try {
+        await Promise.race([
+          fetch(WEBHOOK, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body
+          }),
+          new Promise(resolve => setTimeout(resolve, 5000))
+        ]);
+      } catch (err) {
+        console.error('Webhook send failed:', err);
+      }
+    }
 
     window.location.href = 'danke.html';
   });
