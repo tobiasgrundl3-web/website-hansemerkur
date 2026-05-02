@@ -251,7 +251,7 @@
   /* ── Submit ──────────────────────────────────────────────── */
   const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/';
 
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
     if (!validateStep(current)) return;
 
@@ -261,28 +261,20 @@
     const payload = collectFormData();
     const body = new URLSearchParams(payload).toString();
 
-    /* sendBeacon fires even during page unload – most reliable for webhooks */
-    const beaconSent = typeof navigator.sendBeacon === 'function'
-      && navigator.sendBeacon(WEBHOOK, new Blob([body], { type: 'application/x-www-form-urlencoded' }));
+    /* keepalive: browser keeps the request alive even after page navigation */
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+      keepalive: true
+    }).catch(err => {
+      console.error('Webhook error:', err);
+      /* Last resort: sendBeacon */
+      if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, new URLSearchParams(payload));
+    });
 
-    if (!beaconSent) {
-      /* Fallback: fetch with no-cors so CORS errors never block the send */
-      try {
-        await Promise.race([
-          fetch(WEBHOOK, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body
-          }),
-          new Promise(resolve => setTimeout(resolve, 5000))
-        ]);
-      } catch (err) {
-        console.error('Webhook send failed:', err);
-      }
-    }
-
-    window.location.href = 'danke.html';
+    /* Short delay so the request is fully initiated before navigation */
+    setTimeout(() => { window.location.href = 'danke.html'; }, 500);
   });
 
   /* ── Init ────────────────────────────────────────────────── */
