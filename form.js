@@ -210,10 +210,21 @@
       data[key] = input.value;
     });
 
-    // Pill groups
+    // Pill groups — normalize group names so all 3 forms
+    // send identical field names to Zapier
+    const GROUP_MAP = {
+      'tierart-hund':       'tierart',
+      'tierart-katze':      'tierart',
+      'registrierung-hund': 'registrierung',
+      'registrierung-katze':'registrierung',
+      'haltung-katze':      'haltung',
+    };
+
     form.querySelectorAll('.pill-group[data-group]').forEach(group => {
       if (group.closest('.is-hidden')) return;
-      if (group.dataset.value) data[group.dataset.group] = group.dataset.value;
+      if (!group.dataset.value) return;
+      const key = GROUP_MAP[group.dataset.group] || group.dataset.group;
+      data[key] = group.dataset.value;
     });
 
     // Check cards (multi-select)
