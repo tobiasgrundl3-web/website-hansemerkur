@@ -242,6 +242,7 @@
     // Meta
     const page = window.location.pathname.split('/').pop() || '';
     data.formular = page.includes('katze') ? 'Katze' : page.includes('hund') ? 'Hund' : 'Allgemein';
+    data.tier = page.includes('katze') ? 'Katze' : page.includes('hund') ? 'Hund' : (document.getElementById('tier_auswahl_hidden')?.value || '');
     data.seite = page;
     data.zeitstempel = new Date().toISOString();
 
@@ -273,8 +274,14 @@
       if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, new URLSearchParams(payload));
     });
 
-    /* Short delay so the request is fully initiated before navigation */
-    setTimeout(() => { window.location.href = 'danke.html'; }, 500);
+    /* Redirect to danke.html — carry UTM params so GTM sees the conversion source */
+    const utmString = UTM_KEYS
+      .map(k => ({ k, v: payload[k] || '' }))
+      .filter(({ v }) => v)
+      .map(({ k, v }) => `${k}=${encodeURIComponent(v)}`)
+      .join('&');
+    const redirect = utmString ? `danke.html?${utmString}` : 'danke.html';
+    setTimeout(() => { window.location.href = redirect; }, 500);
   });
 
   /* ── Init ────────────────────────────────────────────────── */
