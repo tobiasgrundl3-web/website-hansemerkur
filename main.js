@@ -284,18 +284,21 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     });
   }
 
-  // Fire webhook on every page with UTM data
-  const payload = { seite: window.location.href, zeitstempel: new Date().toISOString() };
-  UTM_KEYS.forEach(key => {
-    const val = params.get(key) || localStorage.getItem(key) || '';
-    if (val) payload[key] = val;
-  });
-
-  fetch('https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(() => {});
+  // Fire webhook only when UTM params are present in the URL (new visit from ad)
+  const hasUtm = UTM_KEYS.some(key => params.get(key));
+  if (hasUtm) {
+    const trackPayload = new URLSearchParams({ seite: window.location.href, zeitstempel: new Date().toISOString() });
+    UTM_KEYS.forEach(key => {
+      const val = params.get(key) || '';
+      if (val) trackPayload.set(key, val);
+    });
+    fetch('https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: trackPayload.toString(),
+      keepalive: true
+    }).catch(() => {});
+  }
 })();
 
 
