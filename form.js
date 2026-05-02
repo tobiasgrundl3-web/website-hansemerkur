@@ -8,6 +8,10 @@
   const form = document.getElementById('hmForm');
   if (!form) return;
 
+  // Only run on actual form pages
+  const isFormPage = window.location.pathname.includes('angebot');
+  if (!isFormPage) return;
+
   const steps      = Array.from(form.querySelectorAll('.form-step'));
   const stepFill   = document.getElementById('stepFill');
   const stepLabels = document.querySelectorAll('.step-label');
