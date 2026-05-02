@@ -252,7 +252,7 @@
   /* ── Submit ──────────────────────────────────────────────── */
   const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/';
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!validateStep(current)) return;
 
@@ -262,26 +262,32 @@
     const payload = collectFormData();
     const body = new URLSearchParams(payload).toString();
 
-    /* keepalive: browser keeps the request alive even after page navigation */
-    fetch(WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-      keepalive: true
-    }).catch(err => {
-      console.error('Webhook error:', err);
-      /* Last resort: sendBeacon */
-      if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, new URLSearchParams(payload));
-    });
+    // Send ONCE via sendBeacon (most reliable, fire-and-forget)
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(WEBHOOK, new Blob([body],
+        { type: 'application/x-www-form-urlencoded' }));
+    } else {
+      // Fallback only if sendBeacon not available
+      try {
+        await fetch(WEBHOOK, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+          keepalive: true
+        });
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+    }
 
-    /* Redirect to danke.html — carry UTM params so GTM sees the conversion source */
+    // Redirect
     const utmString = UTM_KEYS
       .map(k => ({ k, v: payload[k] || '' }))
       .filter(({ v }) => v)
       .map(({ k, v }) => `${k}=${encodeURIComponent(v)}`)
       .join('&');
-    const redirect = utmString ? `danke.html?${utmString}` : 'danke.html';
-    setTimeout(() => { window.location.href = redirect; }, 500);
+    window.location.href = utmString ? `danke.html?${utmString}` : 'danke.html';
   });
 
   /* ── Init ────────────────────────────────────────────────── */
