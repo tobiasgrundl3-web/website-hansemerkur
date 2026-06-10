@@ -186,28 +186,48 @@
     .lp-trust {
       background: var(--c-white);
       border-bottom: 1px solid var(--c-border);
-      padding: var(--sp-6) 0;
+      padding: var(--sp-10) 0;
     }
     .lp-trust__inner {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--sp-6) var(--sp-10);
+      gap: var(--sp-6);
+      text-align: center;
     }
     .lp-trust__label {
       font-size: var(--fs-sm);
       color: var(--c-muted);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: .05em;
+      letter-spacing: .08em;
     }
     .lp-trust__badges {
       display: flex;
       align-items: center;
-      gap: var(--sp-6);
+      justify-content: center;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
     }
-    .lp-trust__badge { height: 56px; width: auto; object-fit: contain; }
+    .lp-trust__badge-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .lp-trust__badge {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.12));
+      transition: transform var(--t-base);
+    }
+    .lp-trust__badge:hover { transform: scale(1.05); }
+    .lp-trust__badge-caption {
+      font-size: var(--fs-xs);
+      color: var(--c-muted);
+      font-weight: 500;
+    }
 
     /* ---------- Produkte ---------- */
     .lp-products {
@@ -712,10 +732,16 @@
          ============================================= -->
     <div class="lp-trust" aria-label="Auszeichnungen">
       <div class="container lp-trust__inner">
-        <span class="lp-trust__label">Ausgezeichnet von</span>
+        <span class="lp-trust__label">Mehrfach ausgezeichnet &amp; empfohlen</span>
         <div class="lp-trust__badges">
-          <img src="public/focus-money-2026.jpeg" alt="Focus Money – Fairster Tier-Versicherer 2026" class="lp-trust__badge" loading="lazy">
-          <img src="public/cash-sieger.png" alt="Cash. Financial Advisors Award – Sieger" class="lp-trust__badge" loading="lazy">
+          <div class="lp-trust__badge-wrap">
+            <img src="public/focus-money-2026.jpeg" alt="Focus Money – Fairster Tier-Versicherer 2026" class="lp-trust__badge" loading="lazy">
+            <span class="lp-trust__badge-caption">Focus Money 2026</span>
+          </div>
+          <div class="lp-trust__badge-wrap">
+            <img src="public/cash-sieger.png" alt="Cash. Financial Advisors Award – Sieger" class="lp-trust__badge" loading="lazy">
+            <span class="lp-trust__badge-caption">Cash. Sieger 2024</span>
+          </div>
         </div>
       </div>
     </div>
