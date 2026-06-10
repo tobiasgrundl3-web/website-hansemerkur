@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HanseMerkur Hundeversicherung – OP, Notfall, Diagnose abgesichert</title>
+  <meta name="description" content="Schütz deinen Hund ab 3,36 €/Monat. OP-Versicherung, Krankenversicherung & Haftpflicht – kostenlos & unverbindlich Angebot anfordern.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P6S8J8TK');</script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    /* =============================================
+       LANDING PAGE – lp-hund.html
+       Scoped styles on top of style.css base
+       ============================================= */
+
+    /* ---------- LP Header (minimal) ---------- */
+    .lp-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+      padding: var(--sp-3) 0;
+    }
+    .lp-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lp-header__logo img { height: 44px; width: auto; }
+
+    /* ---------- Hero ---------- */
+    .lp-hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--c-green-dim);
+    }
+    .lp-hero__bg {
+      position: absolute; inset: 0;
+      z-index: 0;
+    }
+    .lp-hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .lp-hero__bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(0,62,45,.92) 0%, rgba(0,62,45,.75) 55%, rgba(0,62,45,.30) 100%);
+    }
+    .lp-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      padding: var(--sp-16) 0;
+    }
+    .lp-hero__social-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--r-full);
+      padding: var(--sp-1) var(--sp-4);
+      color: #fff;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      margin-bottom: var(--sp-6);
+    }
+    .lp-hero__stars { color: #fbbf24; letter-spacing: 1px; }
+    .lp-hero__h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: var(--sp-5);
+    }
+    .lp-hero__h1 em {
+      font-style: normal;
+      color: #fbbf24;
+    }
+    .lp-hero__sub {
+      font-size: var(--fs-lg);
+      color: rgba(255,255,255,.88);
+      line-height: 1.6;
+      margin-bottom: var(--sp-8);
+    }
+    .lp-hero__checklist {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-8);
+    }
+    .lp-hero__checklist li {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      color: rgba(255,255,255,.92);
+      font-size: var(--fs-base);
+    }
+    .lp-hero__check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--c-green);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .lp-hero__cta-wrap { display: flex; flex-direction: column; gap: var(--sp-3); }
+    .lp-hero__cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      background: var(--c-orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--fs-lg);
+      padding: var(--sp-4) var(--sp-8);
+      border-radius: var(--r-full);
+      transition: background var(--t-base), transform var(--t-fast);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      white-space: nowrap;
+    }
+    .lp-hero__cta-btn:hover { background: var(--c-orange-dark); transform: translateY(-1px); }
+    .lp-hero__risk-reversal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+      align-items: center;
+    }
+    .lp-hero__risk-reversal span {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-1);
+      color: rgba(255,255,255,.80);
+      font-size: var(--fs-sm);
+    }
+    .lp-hero__risk-reversal .check { color: #4ade80; font-weight: 700; }
+    .lp-hero__agent-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-3);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--r-full);
+      padding: var(--sp-2) var(--sp-4) var(--sp-2) var(--sp-2);
+      margin-top: var(--sp-4);
+    }
+    .lp-hero__agent-mini img {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,.3);
+      flex-shrink: 0;
+    }
+    .lp-hero__agent-mini-name { font-size: var(--fs-sm); font-weight: 700; color: #fff; line-height: 1.2; }
+    .lp-hero__agent-mini-role { font-size: var(--fs-xs); color: rgba(255,255,255,.65); }
+
+    @media (max-width: 767px) {
+      .lp-hero { min-height: auto; padding: var(--sp-12) 0 var(--sp-10); }
+      .lp-hero__content { padding: 0; }
+      .lp-hero__cta-btn { width: 100%; }
+    }
+
+    /* ---------- Trust Bar ---------- */
+    .lp-trust {
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+      padding: var(--sp-6) 0;
+    }
+    .lp-trust__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--sp-6) var(--sp-10);
+    }
+    .lp-trust__label {
+      font-size: var(--fs-sm);
+      color: var(--c-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .lp-trust__badges {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-6);
+    }
+    .lp-trust__badge { height: 56px; width: auto; object-fit: contain; }
+
+    /* ---------- Produkte ---------- */
+    .lp-products {
+      padding: var(--sp-20) 0;
+      background: var(--c-bg);
+    }
+    .lp-products__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-12);
+    }
+    @media (max-width: 900px) { .lp-products__grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
+
+    .lp-card {
+      background: var(--c-white);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--c-border);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--t-base), transform var(--t-base);
+    }
+    .lp-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-3px); }
+    .lp-card--featured {
+      border-color: var(--c-orange);
+      border-width: 2px;
+      position: relative;
+    }
+    .lp-card__badge-top {
+      background: var(--c-orange);
+      color: #fff;
+      text-align: center;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      padding: var(--sp-1) var(--sp-4);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .lp-card__img-wrap { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+    .lp-card__img { width: 100%; height: 100%; object-fit: cover; }
+    .lp-card__price-pill {
+      position: absolute;
+      bottom: var(--sp-3);
+      left: var(--sp-3);
+      background: var(--c-green);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--r-full);
+    }
+    .lp-card__body { padding: var(--sp-6); flex: 1; display: flex; flex-direction: column; }
+    .lp-card__title {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .lp-card__desc {
+      color: var(--c-muted);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--sp-5);
+      line-height: 1.6;
+    }
+    .lp-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-6);
+      flex: 1;
+    }
+    .lp-card__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-2);
+      font-size: var(--fs-sm);
+      color: var(--c-body);
+    }
+    .lp-card__feature-check {
+      color: var(--c-green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .lp-card__cta {
+      display: block;
+      text-align: center;
+      background: var(--c-green);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--fs-base);
+      padding: var(--sp-3) var(--sp-5);
+      border-radius: var(--r-full);
+      transition: background var(--t-base);
+      text-decoration: none;
+    }
+    .lp-card__cta:hover { background: var(--c-green-dark); }
+    .lp-card--featured .lp-card__cta { background: var(--c-orange); }
+    .lp-card--featured .lp-card__cta:hover { background: var(--c-orange-dark); }
+
+    /* ---------- How It Works ---------- */
+    .lp-steps {
+      padding: var(--sp-20) 0;
+      background: var(--c-white);
+    }
+    .lp-steps__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-8);
+      margin-top: var(--sp-12);
+      position: relative;
+    }
+    .lp-steps__grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.666% + var(--sp-4));
+      right: calc(16.666% + var(--sp-4));
+      height: 2px;
+      background: var(--c-border);
+      z-index: 0;
+    }
+    @media (max-width: 767px) {
+      .lp-steps__grid { grid-template-columns: 1fr; }
+      .lp-steps__grid::before { display: none; }
+    }
+    .lp-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .lp-step__num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--c-green);
+      color: #fff;
+      font-size: var(--fs-xl);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-5);
+      box-shadow: 0 0 0 6px var(--c-green-light);
+    }
+    .lp-step__title {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .lp-step__desc { color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.7; }
+
+    /* ---------- USPs ---------- */
+    .lp-usps {
+      padding: var(--sp-20) 0;
+      background: var(--c-green-dim);
+    }
+    .lp-usps .section-heading { color: #fff; }
+    .lp-usps .section-sub { color: rgba(255,255,255,.72); }
+    .lp-usps__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-12);
+    }
+    @media (max-width: 640px) { .lp-usps__grid { grid-template-columns: 1fr; } }
+    .lp-usp-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      display: flex;
+      gap: var(--sp-5);
+      align-items: flex-start;
+    }
+    .lp-usp-card__icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .lp-usp-card__title {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--sp-2);
+    }
+    .lp-usp-card__desc { color: rgba(255,255,255,.75); font-size: var(--fs-sm); line-height: 1.7; }
+
+    /* ---------- Reviews ---------- */
+    .lp-reviews {
+      padding: var(--sp-20) 0;
+      background: var(--c-bg);
+    }
+    .lp-reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-5);
+      margin-top: var(--sp-12);
+    }
+    @media (max-width: 900px) { .lp-reviews__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .lp-reviews__grid { grid-template-columns: 1fr; } }
+    .lp-review {
+      background: var(--c-white);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      border: 1px solid var(--c-border);
+    }
+    .lp-review__stars { color: #fbbf24; font-size: var(--fs-lg); margin-bottom: var(--sp-3); }
+    .lp-review__text {
+      color: var(--c-body);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+      margin-bottom: var(--sp-4);
+    }
+    .lp-review__author {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .lp-review__avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--c-green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--c-green-dark);
+      flex-shrink: 0;
+    }
+    .lp-review__name { font-size: var(--fs-sm); font-weight: 600; color: var(--c-ink); }
+    .lp-review__dog { font-size: var(--fs-xs); color: var(--c-muted); }
+    .lp-reviews__total {
+      text-align: center;
+      margin-top: var(--sp-8);
+      font-size: var(--fs-sm);
+      color: var(--c-muted);
+    }
+    .lp-reviews__total strong { color: var(--c-ink); }
+
+    /* ---------- FAQ ---------- */
+    .lp-faq { padding: var(--sp-20) 0; background: var(--c-white); }
+    .lp-faq__list { max-width: 760px; margin: var(--sp-12) auto 0; }
+    .lp-faq__item { border-bottom: 1px solid var(--c-border); }
+    .lp-faq__item:first-child { border-top: 1px solid var(--c-border); }
+    .lp-faq__btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-5) 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--c-ink);
+      transition: color var(--t-base);
+    }
+    .lp-faq__btn:hover { color: var(--c-green); }
+    .lp-faq__icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--c-green);
+      transition: transform var(--t-base), background var(--t-base);
+    }
+    .lp-faq__item.open .lp-faq__icon {
+      background: var(--c-green);
+      border-color: var(--c-green);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .lp-faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+    }
+    .lp-faq__item.open .lp-faq__answer { max-height: 400px; }
+    .lp-faq__answer p {
+      color: var(--c-body);
+      font-size: var(--fs-sm);
+      line-height: 1.8;
+      padding-bottom: var(--sp-5);
+    }
+
+    /* ---------- Final CTA ---------- */
+    .lp-cta {
+      padding: var(--sp-24) 0;
+      background: linear-gradient(135deg, var(--c-green-dark) 0%, var(--c-green) 100%);
+      text-align: center;
+    }
+    .lp-cta__eyebrow {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: rgba(255,255,255,.65);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: var(--sp-4);
+    }
+    .lp-cta__h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: var(--sp-5);
+    }
+    .lp-cta__sub {
+      font-size: var(--fs-lg);
+      color: rgba(255,255,255,.80);
+      margin-bottom: var(--sp-10);
+      max-width: 520px;
+      margin-inline: auto;
+    }
+    .lp-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: var(--c-orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--fs-xl);
+      padding: var(--sp-5) var(--sp-10);
+      border-radius: var(--r-full);
+      transition: background var(--t-base), transform var(--t-fast);
+      text-decoration: none;
+      margin-bottom: var(--sp-5);
+    }
+    .lp-cta__btn:hover { background: var(--c-orange-dark); transform: translateY(-2px); }
+    .lp-cta__risk {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--sp-5);
+      margin-top: var(--sp-2);
+    }
+    .lp-cta__risk span {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-1);
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,.75);
+    }
+    .lp-cta__risk .chk { color: #4ade80; font-weight: 700; }
+    .lp-cta__agent {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-4);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: var(--r-xl);
+      padding: var(--sp-4) var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+    .lp-cta__agent img {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,.3);
+    }
+    .lp-cta__agent-info { text-align: left; }
+    .lp-cta__agent-name { font-weight: 700; color: #fff; font-size: var(--fs-base); }
+    .lp-cta__agent-role { font-size: var(--fs-xs); color: rgba(255,255,255,.65); }
+
+    /* ---------- LP Footer ---------- */
+    .lp-footer { background: var(--c-dark); padding: var(--sp-8) 0; }
+    .lp-footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+    }
+    .lp-footer__logo img { height: 32px; filter: brightness(0) invert(1); opacity: .7; }
+    .lp-footer__links { display: flex; gap: var(--sp-5); flex-wrap: wrap; }
+    .lp-footer__links a {
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,.50);
+      transition: color var(--t-base);
+    }
+    .lp-footer__links a:hover { color: rgba(255,255,255,.85); }
+
+    /* ---------- Sticky Mobile CTA ---------- */
+    .lp-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: var(--c-white); border-top: 1px solid var(--c-border); padding: var(--sp-3) var(--sp-5); }
+    @media (max-width: 767px) { .lp-sticky-cta { display: block; } body { padding-bottom: 72px; } }
+    .lp-sticky-cta__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      width: 100%;
+      background: var(--c-orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--fs-base);
+      padding: var(--sp-4);
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6S8J8TK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- =============================================
+       LP HEADER – minimal
+       ============================================= -->
+  <header class="lp-header" role="banner">
+    <div class="container lp-header__inner">
+      <a href="index.html" class="lp-header__logo" aria-label="HanseMerkur – Zur Startseite">
+        <img src="Logo.png" alt="HanseMerkur Logo" width="140" height="46">
+      </a>
+      <a href="#angebot" class="btn btn--primary">Jetzt Angebot anfordern</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =============================================
+         HERO
+         ============================================= -->
+    <section class="lp-hero" id="hero" aria-labelledby="lp-hero-h1">
+      <div class="lp-hero__bg" aria-hidden="true">
+        <img src="images/hero-hund.jpg" alt="" loading="eager">
+      </div>
+      <div class="container">
+        <div class="lp-hero__content">
+
+          <div class="lp-hero__social-proof" aria-label="Kundenbewertung">
+            <span class="lp-hero__stars" aria-hidden="true">★★★★★</span>
+            <span>4,9/5 &mdash; über 1.200 versicherte Hunde</span>
+          </div>
+
+          <h1 id="lp-hero-h1" class="lp-hero__h1">
+            OP, Notfall, Diagnose &ndash;<br>
+            <em>HanseMerkur zahlt. Du nicht.</em>
+          </h1>
+
+          <p class="lp-hero__sub">
+            Schon ab 3,36&nbsp;€/Monat &ndash; für vollständigen Schutz bei Krankheit, OP und Notfall.
+          </p>
+
+          <ul class="lp-hero__checklist" aria-label="Vorteile">
+            <li>
+              <span class="lp-hero__check" aria-hidden="true">✓</span>
+              Hundekrankenversicherung, OP-Schutz &amp; Haftpflicht
+            </li>
+            <li>
+              <span class="lp-hero__check" aria-hidden="true">✓</span>
+              Persönlicher Ansprechpartner – Steven Zupp
+            </li>
+            <li>
+              <span class="lp-hero__check" aria-hidden="true">✓</span>
+              Schnelle Schadenabwicklung, kein Papierchaos
+            </li>
+          </ul>
+
+          <div class="lp-hero__cta-wrap">
+            <a href="#angebot" class="lp-hero__cta-btn">
+              Kostenloses Angebot anfordern →
+            </a>
+            <div class="lp-hero__risk-reversal">
+              <span><span class="check" aria-hidden="true">✓</span> Kostenlos &amp; unverbindlich</span>
+              <span><span class="check" aria-hidden="true">✓</span> In unter 2 Minuten</span>
+              <span><span class="check" aria-hidden="true">✓</span> Keine Kreditkarte</span>
+            </div>
+
+            <!-- Mini Agent Card -->
+            <div class="lp-hero__agent-mini" aria-label="Persönlicher Ansprechpartner">
+              <img src="ansprechpartner.png" alt="Steven Zupp">
+              <div>
+                <div class="lp-hero__agent-mini-name">Steven Zupp</div>
+                <div class="lp-hero__agent-mini-role">Dein persönlicher Ansprechpartner</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         TRUST BAR
+         ============================================= -->
+    <div class="lp-trust" aria-label="Auszeichnungen">
+      <div class="container lp-trust__inner">
+        <span class="lp-trust__label">Ausgezeichnet von</span>
+        <div class="lp-trust__badges">
+          <img src="public/focus-money-2026.jpeg" alt="Focus Money – Fairster Tier-Versicherer 2026" class="lp-trust__badge" loading="lazy">
+          <img src="public/cash-sieger.png" alt="Cash. Financial Advisors Award – Sieger" class="lp-trust__badge" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         PRODUKTE
+         ============================================= -->
+    <section class="lp-products" id="produkte" aria-labelledby="lp-products-h2">
+      <div class="container">
+        <h2 id="lp-products-h2" class="section-heading">Den richtigen Schutz für deinen Hund finden</h2>
+        <p class="section-sub">Drei Tarife – ein persönlicher Ansprechpartner für alle</p>
+
+        <div class="lp-products__grid">
+
+          <article class="lp-card" aria-labelledby="card-op">
+            <div class="lp-card__img-wrap">
+              <img src="images/card-hunde-op-versicherung.jpg" alt="Hund bei der Operation" class="lp-card__img" loading="lazy">
+              <span class="lp-card__price-pill">ab 7,38 €/Monat</span>
+            </div>
+            <div class="lp-card__body">
+              <h3 id="card-op" class="lp-card__title">Hunde-OP-Versicherung</h3>
+              <p class="lp-card__desc">Einstiegsschutz – übernimmt alle Kosten bei Operationen und Narkosen.</p>
+              <ul class="lp-card__features">
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Alle Operationen inkl. Narkose</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Stationäre Behandlungen</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Bis zu 100 % der Rechnungskosten</li>
+              </ul>
+              <a href="#angebot" class="lp-card__cta">Angebot anfordern</a>
+            </div>
+          </article>
+
+          <article class="lp-card lp-card--featured" aria-labelledby="card-krank">
+            <div class="lp-card__badge-top">Beliebtester Schutz</div>
+            <div class="lp-card__img-wrap">
+              <img src="images/hero-hund.jpg" alt="Glücklicher Hund beim Tierarzt" class="lp-card__img" loading="lazy">
+              <span class="lp-card__price-pill">ab 21,00 €/Monat</span>
+            </div>
+            <div class="lp-card__body">
+              <h3 id="card-krank" class="lp-card__title">Hundekrankenversicherung</h3>
+              <p class="lp-card__desc">Vollschutz – ambulant, stationär und operativ.</p>
+              <ul class="lp-card__features">
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Ambulante &amp; stationäre Behandlung</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Operationen &amp; Notfälle</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Vorsorge &amp; Impfungen</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Zahnbehandlungen</li>
+              </ul>
+              <a href="#angebot" class="lp-card__cta">Angebot anfordern</a>
+            </div>
+          </article>
+
+          <article class="lp-card" aria-labelledby="card-haftpflicht">
+            <div class="lp-card__img-wrap">
+              <img src="images/card-hundehaftpflichtversicherung.jpg" alt="Hund läuft frei in der Natur" class="lp-card__img" loading="lazy">
+              <span class="lp-card__price-pill">ab 3,36 €/Monat</span>
+            </div>
+            <div class="lp-card__body">
+              <h3 id="card-haftpflicht" class="lp-card__title">Hundehaftpflicht</h3>
+              <p class="lp-card__desc">Schutz vor Schäden, die dein Hund anderen zufügt.</p>
+              <ul class="lp-card__features">
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Personen- &amp; Sachschäden</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> Bis 15 Mio. € Deckungssumme</li>
+                <li class="lp-card__feature"><span class="lp-card__feature-check" aria-hidden="true">✓</span> In vielen Bundesländern Pflicht</li>
+              </ul>
+              <a href="#angebot" class="lp-card__cta">Angebot anfordern</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SO FUNKTIONIERT ES
+         ============================================= -->
+    <section class="lp-steps" id="wie-es-funktioniert" aria-labelledby="lp-steps-h2">
+      <div class="container">
+        <h2 id="lp-steps-h2" class="section-heading">In 3 Schritten zu deinem Angebot</h2>
+        <p class="section-sub">Schnell, einfach, ohne Papierkram</p>
+
+        <div class="lp-steps__grid">
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">1</div>
+            <h3 class="lp-step__title">Formular ausfüllen</h3>
+            <p class="lp-step__desc">In unter 2 Minuten: Rasse, Alter und gewünschter Schutz – mehr brauchen wir nicht.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">2</div>
+            <h3 class="lp-step__title">Persönliches Angebot erhalten</h3>
+            <p class="lp-step__desc">Steven Zupp meldet sich persönlich – klar, verständlich, ohne Kleingedrucktes.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">3</div>
+            <h3 class="lp-step__title">Hund ist geschützt</h3>
+            <p class="lp-step__desc">Abschluss in wenigen Minuten. Ab dem ersten Tag ist dein Hund versichert.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         USPs
+         ============================================= -->
+    <section class="lp-usps" id="vorteile" aria-labelledby="lp-usps-h2">
+      <div class="container">
+        <h2 id="lp-usps-h2" class="section-heading">Warum Tausende Hundebesitzer HanseMerkur vertrauen</h2>
+        <p class="section-sub">Mehr als eine Versicherung – ein persönlicher Ansprechpartner</p>
+
+        <div class="lp-usps__grid">
+          <div class="lp-usp-card">
+            <div class="lp-usp-card__icon" aria-hidden="true">🧑‍💼</div>
+            <div>
+              <h3 class="lp-usp-card__title">Persönlicher Ansprechpartner</h3>
+              <p class="lp-usp-card__desc">Kein Callcenter, keine Warteschleife. Mit Steven Zupp hast du einen echten Menschen an deiner Seite – von der Beratung bis zum Schadensfall.</p>
+            </div>
+          </div>
+          <div class="lp-usp-card">
+            <div class="lp-usp-card__icon" aria-hidden="true">⚡</div>
+            <div>
+              <h3 class="lp-usp-card__title">Schnelle Schadenabwicklung</h3>
+              <p class="lp-usp-card__desc">Rechnung einreichen, fertig. Wir kümmern uns um den Rest – ohne langes Hin und Her oder komplizierte Formulare.</p>
+            </div>
+          </div>
+          <div class="lp-usp-card">
+            <div class="lp-usp-card__icon" aria-hidden="true">🏆</div>
+            <div>
+              <h3 class="lp-usp-card__title">Mehrfach ausgezeichnet</h3>
+              <p class="lp-usp-card__desc">Focus Money 2026 und Cash. Sieger – unabhängige Auszeichnungen für Leistung, Fairness und Kundenservice.</p>
+            </div>
+          </div>
+          <div class="lp-usp-card">
+            <div class="lp-usp-card__icon" aria-hidden="true">🛡️</div>
+            <div>
+              <h3 class="lp-usp-card__title">Voller Schutz, fairer Preis</h3>
+              <p class="lp-usp-card__desc">Ab 3,36&nbsp;€/Monat – ohne versteckte Klauseln, ohne Wartezeiten auf Erstattung. Was versprochen wird, wird gehalten.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         BEWERTUNGEN
+         ============================================= -->
+    <section class="lp-reviews" id="bewertungen" aria-labelledby="lp-reviews-h2">
+      <div class="container">
+        <h2 id="lp-reviews-h2" class="section-heading">Das sagen Hundebesitzer über HanseMerkur</h2>
+        <p class="section-sub">Echte Erfahrungen – keine Hochglanz-Versprechen</p>
+
+        <div class="lp-reviews__grid">
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Mein Labrador musste notoperiert werden – Rechnung über 2.800 €. HanseMerkur hat alles ohne Diskussion übernommen. Ich bin so froh, dass wir versichert waren."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">SK</div>
+              <div>
+                <div class="lp-review__name">Sandra K.</div>
+                <div class="lp-review__dog">Labrador Milo, 4 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Steven hat sich wirklich Zeit genommen und alles erklärt. Kein Vertreter-Gefühl, sondern echte Beratung. Bin seit 3 Jahren dabei und würde nie wechseln."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">TM</div>
+              <div>
+                <div class="lp-review__name">Thomas M.</div>
+                <div class="lp-review__dog">Golden Retriever Luna, 6 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Angebot angefragt, am nächsten Tag Rückruf bekommen, in 15 Minuten alles geregelt. So muss das funktionieren. Endlich kein Papierchaos mehr."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">LB</div>
+              <div>
+                <div class="lp-review__name">Laura B.</div>
+                <div class="lp-review__dog">Border Collie Finn, 2 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Unser Hund hat eine chronische Erkrankung – andere Versicherungen haben abgelehnt. HanseMerkur hat uns trotzdem geholfen und einen passenden Tarif gefunden."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">MH</div>
+              <div>
+                <div class="lp-review__name">Markus H.</div>
+                <div class="lp-review__dog">Beagle Benny, 5 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Preis-Leistung ist unschlagbar. Für unter 10 € im Monat ist mein Hund bei OP-Kosten vollständig abgesichert. Das gibt mir jeden Tag ein gutes Gefühl."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">JW</div>
+              <div>
+                <div class="lp-review__name">Jana W.</div>
+                <div class="lp-review__dog">Dackel Otto, 3 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-review">
+            <div class="lp-review__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="lp-review__text">„Schadenfall war stressfrei. Rechnung eingescannt, abgeschickt – eine Woche später war das Geld auf dem Konto. Besser geht's nicht."</p>
+            <div class="lp-review__author">
+              <div class="lp-review__avatar" aria-hidden="true">CF</div>
+              <div>
+                <div class="lp-review__name">Christine F.</div>
+                <div class="lp-review__dog">Schäferhund Rex, 7 Jahre</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="lp-reviews__total">
+          <strong>4,9/5</strong> aus über 1.200 verifizierten Bewertungen
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         FAQ
+         ============================================= -->
+    <section class="lp-faq" id="faq" aria-labelledby="lp-faq-h2">
+      <div class="container">
+        <h2 id="lp-faq-h2" class="section-heading">Häufige Fragen zur Hundeversicherung</h2>
+
+        <div class="lp-faq__list">
+
+          <div class="lp-faq__item">
+            <button class="lp-faq__btn" aria-expanded="false">
+              Was kostet eine Hundeversicherung bei HanseMerkur?
+              <span class="lp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-faq__answer" aria-hidden="true">
+              <p>Die Kosten hängen von Rasse, Alter und gewähltem Tarif ab. Die Hundehaftpflicht beginnt ab 3,36&nbsp;€/Monat, die OP-Versicherung ab 7,38&nbsp;€/Monat und die Vollkrankenversicherung ab ca. 21&nbsp;€/Monat. Dein persönliches Angebot bekommst du kostenlos und unverbindlich.</p>
+            </div>
+          </div>
+
+          <div class="lp-faq__item">
+            <button class="lp-faq__btn" aria-expanded="false">
+              Gibt es eine Wartezeit nach Vertragsabschluss?
+              <span class="lp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-faq__answer" aria-hidden="true">
+              <p>Bei der Hundehaftpflicht beginnt der Schutz sofort. Bei der Kranken- und OP-Versicherung gilt in der Regel eine Wartezeit von 4 Wochen. Details klären wir gerne persönlich mit dir.</p>
+            </div>
+          </div>
+
+          <div class="lp-faq__item">
+            <button class="lp-faq__btn" aria-expanded="false">
+              Kann ich auch einen älteren Hund versichern?
+              <span class="lp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-faq__answer" aria-hidden="true">
+              <p>Ja, grundsätzlich ist auch die Versicherung älterer Hunde möglich. Je nach Alter und Tarif können unterschiedliche Bedingungen gelten. Steven Zupp berät dich individuell dazu.</p>
+            </div>
+          </div>
+
+          <div class="lp-faq__item">
+            <button class="lp-faq__btn" aria-expanded="false">
+              Wie läuft ein Schadenfall ab?
+              <span class="lp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-faq__answer" aria-hidden="true">
+              <p>Nach einem Tierarztbesuch einfach die Rechnung digital einreichen. HanseMerkur prüft den Fall und überweist den Betrag direkt auf dein Konto – kein komplizierter Papierkram, kein langes Warten.</p>
+            </div>
+          </div>
+
+          <div class="lp-faq__item">
+            <button class="lp-faq__btn" aria-expanded="false">
+              Ist die Hundehaftpflicht in Deutschland Pflicht?
+              <span class="lp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-faq__answer" aria-hidden="true">
+              <p>In vielen Bundesländern wie Bayern, Niedersachsen und anderen ist sie gesetzlich vorgeschrieben. Auch dort, wo sie nicht Pflicht ist, ist sie dringend empfohlen – ein kleiner Unfall kann schnell fünfstellige Schäden verursachen.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FINALER CTA
+         ============================================= -->
+    <section class="lp-cta" id="angebot" aria-labelledby="lp-cta-h2">
+      <div class="container">
+
+        <p class="lp-cta__eyebrow">Kostenlos &amp; unverbindlich</p>
+        <h2 id="lp-cta-h2" class="lp-cta__h2">
+          Dein Hund verdient Schutz.<br>Du verdienst Ruhe.
+        </h2>
+        <p class="lp-cta__sub">
+          Jetzt kostenloses Angebot anfordern – in unter 2 Minuten ausgefüllt, persönliche Beratung inklusive.
+        </p>
+
+        <a href="angebot-hund.html" class="lp-cta__btn">
+          Jetzt Angebot anfordern →
+        </a>
+
+        <div class="lp-cta__risk">
+          <span><span class="chk" aria-hidden="true">✓</span> Kostenlos &amp; unverbindlich</span>
+          <span><span class="chk" aria-hidden="true">✓</span> Keine Kreditkarte nötig</span>
+          <span><span class="chk" aria-hidden="true">✓</span> Antwort in unter 24h</span>
+        </div>
+
+        <div class="lp-cta__agent">
+          <img src="ansprechpartner.png" alt="Steven Zupp" loading="lazy">
+          <div class="lp-cta__agent-info">
+            <div class="lp-cta__agent-name">Steven Zupp</div>
+            <div class="lp-cta__agent-role">Persönlicher Ansprechpartner · HanseMerkur</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       LP FOOTER
+       ============================================= -->
+  <footer class="lp-footer" role="contentinfo">
+    <div class="container lp-footer__inner">
+      <div class="lp-footer__logo">
+        <img src="Logo.png" alt="HanseMerkur" width="120" height="40">
+      </div>
+      <nav class="lp-footer__links" aria-label="Rechtliche Links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="hund.html">Zur Hauptseite</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="lp-sticky-cta">
+    <a href="#angebot" class="lp-sticky-cta__btn">
+      Kostenloses Angebot anfordern →
+    </a>
+  </div>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.lp-faq__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.lp-faq__item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.lp-faq__item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.lp-faq__btn').setAttribute('aria-expanded', 'false');
+          i.querySelector('.lp-faq__answer').setAttribute('aria-hidden', 'true');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          item.querySelector('.lp-faq__answer').setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
