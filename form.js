@@ -243,6 +243,9 @@
     // gclid — direkt aus localStorage, immer im Payload
     data.gclid = new URLSearchParams(window.location.search).get('gclid') || localStorage.getItem('gclid') || '';
 
+    // lead_source — aus URL-Parameter, Fallback: website
+    data.lead_source = new URLSearchParams(window.location.search).get('lead_source') || 'website';
+
     // Meta
     const page = window.location.pathname.split('/').pop() || '';
     data.formular = page.includes('katze') ? 'Katze' : page.includes('hund') ? 'Hund' : 'Allgemein';
