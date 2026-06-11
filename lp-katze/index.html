@@ -663,6 +663,25 @@
   </div>
 
   <script>
+    // UTM + gclid persistence
+    (function () {
+      const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
+      const params = new URLSearchParams(window.location.search);
+      KEYS.forEach(k => { const v = params.get(k); if (v) localStorage.setItem(k, v); });
+
+      const utmString = KEYS
+        .map(k => ({ k, v: params.get(k) || localStorage.getItem(k) || '' }))
+        .filter(({ v }) => v)
+        .map(({ k, v }) => k + '=' + encodeURIComponent(v))
+        .join('&');
+
+      document.querySelectorAll('a[href*="angebot"]').forEach(a => {
+        const sep = a.href.includes('?') ? '&' : '?';
+        const extra = utmString ? utmString + '&lead_source=lp-katze' : 'lead_source=lp-katze';
+        a.href = a.href + sep + extra;
+      });
+    })();
+
     document.querySelectorAll('.lp-faq__btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.lp-faq__item');
