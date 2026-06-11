@@ -267,15 +267,22 @@
     if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
 
     const payload = collectFormData();
-    try {
-      await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        keepalive: true
-      });
-    } catch (err) {
-      console.error('Webhook error:', err);
+    const body = new URLSearchParams(payload).toString();
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(WEBHOOK, new Blob([body], { type: 'application/x-www-form-urlencoded' }));
+    } else {
+      try {
+        await fetch(WEBHOOK, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+          keepalive: true
+        });
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
     }
 
     // Redirect
