@@ -194,10 +194,10 @@
   function collectFormData() {
     const data = {};
 
-    // Hidden UTM fields
+    // Hidden UTM fields — immer senden, auch wenn leer
     UTM_KEYS.forEach(key => {
       const el = document.getElementById(key);
-      if (el && el.value) data[key] = el.value;
+      data[key] = el ? el.value : '';
     });
 
     // Text / email / tel / date inputs → name attribute (preferred) or label as key
