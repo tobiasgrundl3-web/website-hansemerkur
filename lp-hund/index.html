@@ -1132,12 +1132,11 @@
         .map(({ k, v }) => k + '=' + encodeURIComponent(v))
         .join('&');
 
-      if (utmString) {
-        document.querySelectorAll('a[href*="angebot"]').forEach(a => {
-          const sep = a.href.includes('?') ? '&' : '?';
-          a.href = a.href + sep + utmString;
-        });
-      }
+      document.querySelectorAll('a[href*="angebot"]').forEach(a => {
+        const sep = a.href.includes('?') ? '&' : '?';
+        const extra = utmString ? utmString + '&lead_source=lp-hund' : 'lead_source=lp-hund';
+        a.href = a.href + sep + extra;
+      });
     })();
 
     // FAQ Accordion
