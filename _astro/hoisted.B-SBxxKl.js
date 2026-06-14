@@ -1,0 +1,1 @@
+import"./hoisted.BqfeJnwH.js";const t=document.getElementById("angebot");t&&t.addEventListener("submit",e=>{if(e.preventDefault(),!t.checkValidity()){t.reportValidity();return}window.location.href="danke.html"});
