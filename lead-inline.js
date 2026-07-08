@@ -26,7 +26,8 @@
       var tel=(form.querySelector('[name=telefonnummer]')||{}).value||'';tel=tel.trim();
       var em=(form.querySelector('[name=e_mail_adresse]')||{}).value||'';em=em.trim();
       var err=form.querySelector('.lf-err');
-      if(!vn||tel.replace(/[^0-9]/g,'').length<6){if(err)err.classList.add('is-on');return;}
+      var emailok=/\S+@\S+\.\S+/.test(em);
+      if(!vn||tel.replace(/[^0-9]/g,'').length<6||!emailok){if(err)err.classList.add('is-on');return;}
       if(err)err.classList.remove('is-on');
       var btn=form.querySelector('.lf-btn');if(btn){btn.disabled=true;btn.textContent='Wird gesendet …';}
       var page=location.pathname.split('/').pop()||'';var tier=answers.tierart||'';
