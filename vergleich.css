@@ -33,6 +33,27 @@
 .vg-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
 .vg-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#eafaf3;font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
 
+/* ---------- HERO 2-Spalten (Text links, Flow rechts) ---------- */
+.vg-hero2{display:grid;grid-template-columns:1.02fr .98fr;gap:26px;align-items:center;background:radial-gradient(135% 135% at 0% 0%,#063f34 0%,#0b5a48 52%,#00a06d 100%);border-radius:24px;padding:32px 30px;margin:6px 0 24px;position:relative;overflow:hidden}
+.vg-hero2::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);pointer-events:none}
+.vg-hero2__l{position:relative;z-index:1}
+.vg-hero2__l .vg-ey{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#8ff0c8;margin-bottom:8px}
+.vg-hero2__l h1{color:#fff;margin:6px 0 14px;font-size:clamp(27px,3.6vw,40px);line-height:1.1}
+.vg-hero2__l h1 .accent{color:#6ff0b6}
+.vg-hero2__l p{color:#d7f2e7;font-size:17px;line-height:1.55;margin:0 0 18px;max-width:44ch}
+.vg-hero2__l .vg-badges{margin-top:4px}
+.vg-hero2__r{position:relative;z-index:1}
+.vg-hero2__r .lf-wrap{margin:0}
+.vg-hero2__r .lf-card{box-shadow:0 22px 54px rgba(0,0,0,.24);border-color:#bfe6d5}
+@media(max-width:860px){.vg-hero2{grid-template-columns:1fr;padding:26px 20px;gap:20px}}
+
+/* ---------- CTA schmal (mittig verteilt) ---------- */
+.vg-ctamini{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:#083a30;color:#fff;border-radius:16px;padding:18px 24px;margin:26px 0}
+.vg-ctamini .t{font-weight:800;font-size:17px;color:#fff}
+.vg-ctamini .s{font-size:13.5px;color:#bfe6d5;margin-top:2px}
+.vg-ctamini .vg-btns{margin:0}
+@media(max-width:560px){.vg-ctamini{flex-direction:column;align-items:stretch;text-align:center}.vg-ctamini .vg-btns{justify-content:center}}
+
 /* ---------- KURZ & KNAPP ---------- */
 .vg-tldr{background:#eef8f3;border:1px solid #cfe9dd;border-left:5px solid #00a075;border-radius:12px;padding:18px 20px;margin:22px 0}
 .vg-tldr h3{margin-bottom:6px;color:#005e52}
@@ -108,36 +129,4 @@ table.vg-table tbody tr:nth-child(even){background:#f7fbf9}
 table.vg-table td:first-child,table.vg-table th:first-child{text-align:left;font-weight:600;color:#22463d;position:sticky;left:0;background:inherit;min-width:210px}
 table.vg-table thead th:first-child{background:#063f34}
 .vg-yes{color:#00a075;font-weight:800}
-.vg-no{color:#c4cfca;font-weight:800}
-.vg-hint{font-size:12.5px;color:#7c8f88;text-align:center;padding:9px;background:#f4f8f6}
-
-/* ---------- CTA BAND ---------- */
-.vg-cta{background:linear-gradient(135deg,#00a075,#0b5a48);color:#fff;border-radius:20px;padding:26px 26px;margin:26px 0;text-align:center}
-.vg-cta h2{color:#fff;margin:0 0 8px}
-.vg-cta p{color:#d5f2e6;margin:0 0 16px}
-.vg-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.vg-btn{display:inline-block;font-weight:800;font-size:15px;padding:14px 24px;border-radius:12px;text-decoration:none}
-.vg-btn--p{background:#ff5c35;color:#fff}
-.vg-btn--p:hover{background:#ec4a24}
-.vg-btn--g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
-.vg-btn--g:hover{background:rgba(255,255,255,.24)}
-
-/* ---------- AUTOR ---------- */
-.vg-author{display:flex;gap:16px;align-items:center;border:1px solid #dce9e3;border-radius:16px;padding:18px 20px;background:#fbfefc;margin:16px 0}
-.vg-author img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);flex:0 0 66px}
-.vg-author .nm{font-weight:800;color:#0b2b23}
-.vg-author .rl{font-size:13.5px;color:#5b6b64;margin:2px 0 6px}
-.vg-author .ct{font-size:13.5px;color:#00734f;font-weight:600}
-
-/* ---------- FAQ ---------- */
-.vg-faq{margin:12px 0}
-.vg-faq__i{border:1px solid #e2ede8;border-radius:12px;padding:16px 18px;margin-bottom:10px;background:#fff}
-.vg-faq__q{font-weight:800;color:#0b2b23;margin:0 0 6px;font-size:16px}
-.vg-faq__a{margin:0;color:#3f524b;font-size:15px}
-
-@media(max-width:640px){
-  .vg-vs,.vg-tiers,.vg-dec{grid-template-columns:1fr}
-  .vg-bar{grid-template-columns:104px 1fr;gap:9px}
-  .vg-scale{grid-template-columns:1fr;gap:10px}
-  .vg-hero{padding:26px 20px}
-}
+.vg-no{color:#c4cfca;font-weig
