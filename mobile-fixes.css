@@ -1,0 +1,11 @@
+/* Mobile-Fixes: Header-Topbar & Vergleichstabelle */
+@media (max-width:600px){
+  .topbar__rate{display:none!important}
+  .topbar__in{height:auto!important;justify-content:center!important;padding:7px 0!important}
+  .topbar__contact{gap:1rem!important;font-size:.8rem!important;flex-wrap:wrap!important;justify-content:center!important}
+}
+@media (max-width:640px){
+  .cmp__table{min-width:560px!important;font-size:.8rem!important}
+  .cmp__rowhead{min-width:150px!important;max-width:165px!important;font-size:.77rem!important;padding:.55rem!important;line-height:1.28!important}
+  .cmp__table th,.cmp__table td{padding:.55rem .6rem!important}
+}
