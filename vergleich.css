@@ -1,0 +1,143 @@
+/* ============================================================
+   Vergleichsseiten (HanseMerkur Tarifvergleich)
+   Selbstständiges Styling + animierte CSS-Grafiken (ohne JS)
+   ============================================================ */
+.vg-wrap{max-width:min(900px,92vw);margin:0 auto;padding:0 4px 40px;color:#17352c;font-size:17px;line-height:1.65}
+.vg-wrap h1{font-size:clamp(26px,4.4vw,38px);line-height:1.15;font-weight:800;color:#0b2b23;margin:6px 0 10px;letter-spacing:-.5px}
+.vg-wrap h2{font-size:clamp(21px,3.2vw,27px);line-height:1.2;font-weight:800;color:#0b2b23;margin:44px 0 12px}
+.vg-wrap h3{font-size:18px;font-weight:800;color:#0b2b23;margin:0 0 6px}
+.vg-wrap p{margin:0 0 14px}
+.vg-wrap ul{margin:0 0 16px;padding-left:2px;list-style:none}
+.vg-wrap ul li{position:relative;padding-left:26px;margin-bottom:9px}
+.vg-wrap ul li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:#e8f7ef}
+.vg-wrap ul li::after{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:#00a075}
+.vg-wrap strong{color:#083a30}
+.vg-wrap a.vg-ilink{color:#00875c;font-weight:700;text-decoration:none;border-bottom:2px solid #bfe6d5}
+.vg-wrap a.vg-ilink:hover{border-color:#00a075}
+
+/* breadcrumb */
+.vg-cr{font-size:13px;color:#7c8f88;margin:6px 0 14px}
+.vg-cr a{color:#7c8f88;text-decoration:none}
+.vg-cr a:hover{color:#00a075}
+
+/* reveal animation (spielt beim Laden, Inhalt bleibt sichtbar) */
+@keyframes vgFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.vg-reveal{animation:vgFade .6s ease both}
+
+/* ---------- HERO ---------- */
+.vg-hero{background:radial-gradient(120% 130% at 0% 0%,#063f34 0%,#0b5a48 55%,#00875c 100%);color:#eafaf3;border-radius:22px;padding:34px 30px 30px;margin:6px 0 10px;position:relative;overflow:hidden}
+.vg-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%)}
+.vg-hero .vg-ey{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#8ff0c8;margin-bottom:10px}
+.vg-hero h1{color:#fff;margin:0 0 12px}
+.vg-hero p{color:#d5f2e6;font-size:17px;max-width:60ch;margin:0 0 18px}
+.vg-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.vg-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#eafaf3;font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+
+/* ---------- KURZ & KNAPP ---------- */
+.vg-tldr{background:#eef8f3;border:1px solid #cfe9dd;border-left:5px solid #00a075;border-radius:12px;padding:18px 20px;margin:22px 0}
+.vg-tldr h3{margin-bottom:6px;color:#005e52}
+.vg-tldr p{margin:0}
+
+/* ---------- OP vs VOLLSCHUTZ ---------- */
+.vg-vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 8px}
+.vg-vs__col{border:1px solid #dce9e3;border-radius:16px;padding:20px;background:#fff;animation:vgFade .6s ease both}
+.vg-vs__col:nth-child(2){animation-delay:.12s;border-color:#bfe6d5;background:#f6fdfa}
+.vg-vs__tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:10px}
+.vg-vs__col:nth-child(1) .vg-vs__tag{background:#eef2f0;color:#5b6b64}
+.vg-vs__col:nth-child(2) .vg-vs__tag{background:#d8f2e6;color:#00734f}
+.vg-vs__price{font-size:22px;font-weight:800;color:#0b2b23;margin:4px 0 12px}
+.vg-vs__price span{font-size:13px;font-weight:600;color:#7c8f88}
+.vg-vs__list{margin:0;padding:0;list-style:none}
+.vg-vs__list li{padding:7px 0 7px 28px;position:relative;border-top:1px solid #eef2f0;font-size:15px}
+.vg-vs__list li::before,.vg-vs__list li::after{display:none}
+.vg-vs__list li.y::before{content:"✓";display:block;position:absolute;left:0;top:7px;color:#00a075;font-weight:900}
+.vg-vs__list li.n{color:#9aa8a2}
+.vg-vs__list li.n::before{content:"—";display:block;position:absolute;left:0;top:7px;color:#c4cfca;font-weight:900}
+
+/* ---------- TARIF-KARTEN ---------- */
+.vg-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.vg-tier{border:1px solid #dce9e3;border-radius:18px;padding:20px 18px;background:#fff;animation:vgFade .6s ease both;transition:transform .18s,box-shadow .18s}
+.vg-tier:nth-child(1){animation-delay:.02s}
+.vg-tier:nth-child(2){animation-delay:.14s}
+.vg-tier:nth-child(3){animation-delay:.26s}
+.vg-tier:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,120,85,.14)}
+.vg-tier--feat{border:2px solid #00a075;background:linear-gradient(180deg,#f2fcf7,#ffffff);position:relative}
+.vg-tier--feat::before{content:"Beliebt";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#ff5c35;color:#fff;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.vg-tier__name{font-size:17px;font-weight:800;color:#0b2b23}
+.vg-tier__cap{font-size:13px;color:#7c8f88;margin:2px 0 12px}
+.vg-tier__hi{font-size:26px;font-weight:800;color:#00875c;line-height:1}
+.vg-tier__hi small{display:block;font-size:12px;color:#7c8f88;font-weight:600;margin-top:3px}
+.vg-tier ul{margin:12px 0 0}
+.vg-tier ul li{font-size:14px;margin-bottom:7px}
+
+/* ---------- ANIMIERTE BALKEN ---------- */
+.vg-chart{border:1px solid #e2ede8;border-radius:16px;padding:20px 22px;margin:16px 0;background:#fff}
+.vg-chart__t{font-size:14px;font-weight:800;color:#0b2b23;margin-bottom:14px}
+.vg-bar{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:12px;margin:11px 0}
+.vg-bar__lbl{font-size:14px;font-weight:600;color:#41544c}
+.vg-bar__track{background:#eef4f1;border-radius:999px;height:26px;overflow:hidden;position:relative}
+.vg-bar__fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#0b5a48,#00a075);width:var(--w);transform-origin:left;animation:vgGrow 1.3s cubic-bezier(.2,.85,.25,1) both;animation-delay:var(--d,0s);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;color:#fff;font-weight:800;font-size:13px;white-space:nowrap;min-width:52px}
+.vg-bar__fill.max{background:linear-gradient(90deg,#00875c,#00c98a);position:relative}
+.vg-bar__fill.max::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-100%);animation:vgShim 2.4s ease-in-out 1.2s infinite}
+@keyframes vgGrow{from{width:0}to{width:var(--w)}}
+@keyframes vgShim{to{transform:translateX(100%)}}
+.vg-cost .vg-bar__fill{background:linear-gradient(90deg,#c2410c,#ff5c35)}
+
+/* ---------- ENTSCHEIDUNG ---------- */
+.vg-dec{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.vg-dec__c{border:1px solid #dce9e3;border-radius:14px;padding:16px 18px;background:#fbfefc;animation:vgFade .6s ease both}
+.vg-dec__c h3{font-size:15.5px;display:flex;align-items:center;gap:9px}
+.vg-dec__c .ico{font-size:22px}
+.vg-dec__c p{font-size:14.5px;color:#3f524b;margin:6px 0 0}
+.vg-dec__pick{display:inline-block;margin-top:9px;font-size:12.5px;font-weight:800;color:#00734f;background:#d8f2e6;border-radius:999px;padding:4px 11px}
+
+/* ---------- BEITRAG vs RISIKO ---------- */
+.vg-scale{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;background:#063f34;border-radius:18px;padding:22px;color:#eafaf3;margin:16px 0}
+.vg-scale__b{text-align:center}
+.vg-scale__b .n{font-size:clamp(24px,5vw,34px);font-weight:800;color:#fff;line-height:1}
+.vg-scale__b .n.risk{color:#ffb27a}
+.vg-scale__b .c{font-size:13px;color:#bfe6d5;margin-top:6px}
+.vg-scale__vs{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+
+/* ---------- TABELLE ---------- */
+.vg-tablewrap{border:1px solid #dce9e3;border-radius:14px;overflow-x:auto;margin:16px 0}
+table.vg-table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+table.vg-table th,table.vg-table td{padding:11px 13px;text-align:center;border-bottom:1px solid #eef2f0}
+table.vg-table thead th{background:#063f34;color:#fff;font-weight:700;font-size:13.5px}
+table.vg-table tbody tr:nth-child(even){background:#f7fbf9}
+table.vg-table td:first-child,table.vg-table th:first-child{text-align:left;font-weight:600;color:#22463d;position:sticky;left:0;background:inherit;min-width:210px}
+table.vg-table thead th:first-child{background:#063f34}
+.vg-yes{color:#00a075;font-weight:800}
+.vg-no{color:#c4cfca;font-weight:800}
+.vg-hint{font-size:12.5px;color:#7c8f88;text-align:center;padding:9px;background:#f4f8f6}
+
+/* ---------- CTA BAND ---------- */
+.vg-cta{background:linear-gradient(135deg,#00a075,#0b5a48);color:#fff;border-radius:20px;padding:26px 26px;margin:26px 0;text-align:center}
+.vg-cta h2{color:#fff;margin:0 0 8px}
+.vg-cta p{color:#d5f2e6;margin:0 0 16px}
+.vg-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.vg-btn{display:inline-block;font-weight:800;font-size:15px;padding:14px 24px;border-radius:12px;text-decoration:none}
+.vg-btn--p{background:#ff5c35;color:#fff}
+.vg-btn--p:hover{background:#ec4a24}
+.vg-btn--g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.vg-btn--g:hover{background:rgba(255,255,255,.24)}
+
+/* ---------- AUTOR ---------- */
+.vg-author{display:flex;gap:16px;align-items:center;border:1px solid #dce9e3;border-radius:16px;padding:18px 20px;background:#fbfefc;margin:16px 0}
+.vg-author img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);flex:0 0 66px}
+.vg-author .nm{font-weight:800;color:#0b2b23}
+.vg-author .rl{font-size:13.5px;color:#5b6b64;margin:2px 0 6px}
+.vg-author .ct{font-size:13.5px;color:#00734f;font-weight:600}
+
+/* ---------- FAQ ---------- */
+.vg-faq{margin:12px 0}
+.vg-faq__i{border:1px solid #e2ede8;border-radius:12px;padding:16px 18px;margin-bottom:10px;background:#fff}
+.vg-faq__q{font-weight:800;color:#0b2b23;margin:0 0 6px;font-size:16px}
+.vg-faq__a{margin:0;color:#3f524b;font-size:15px}
+
+@media(max-width:640px){
+  .vg-vs,.vg-tiers,.vg-dec{grid-template-columns:1fr}
+  .vg-bar{grid-template-columns:104px 1fr;gap:9px}
+  .vg-scale{grid-template-columns:1fr;gap:10px}
+  .vg-hero{padding:26px 20px}
+}
