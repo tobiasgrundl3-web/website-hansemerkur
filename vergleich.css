@@ -129,4 +129,47 @@ table.vg-table tbody tr:nth-child(even){background:#f7fbf9}
 table.vg-table td:first-child,table.vg-table th:first-child{text-align:left;font-weight:600;color:#22463d;position:sticky;left:0;background:inherit;min-width:210px}
 table.vg-table thead th:first-child{background:#063f34}
 .vg-yes{color:#00a075;font-weight:800}
-.vg-no{color:#c4cfca;font-weig
+.vg-no{color:#c4cfca;font-weight:800}
+.vg-hint{font-size:12.5px;color:#7c8f88;text-align:center;padding:9px;background:#f4f8f6}
+
+/* ---------- CTA BAND ---------- */
+.vg-cta{background:linear-gradient(135deg,#00a075,#0b5a48);color:#fff;border-radius:20px;padding:26px 26px;margin:26px 0;text-align:center}
+.vg-cta h2{color:#fff;margin:0 0 8px}
+.vg-cta p{color:#d5f2e6;margin:0 0 16px}
+.vg-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.vg-btn{display:inline-block;font-weight:800;font-size:15px;padding:14px 24px;border-radius:12px;text-decoration:none}
+.vg-btn--p{background:#ff5c35;color:#fff}
+.vg-btn--p:hover{background:#ec4a24}
+.vg-btn--g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.vg-btn--g:hover{background:rgba(255,255,255,.24)}
+
+/* ---------- AUTOR ---------- */
+.vg-author{display:flex;gap:16px;align-items:center;border:1px solid #dce9e3;border-radius:16px;padding:18px 20px;background:#fbfefc;margin:16px 0}
+.vg-author img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);flex:0 0 66px}
+.vg-author .nm{font-weight:800;color:#0b2b23}
+.vg-author .rl{font-size:13.5px;color:#5b6b64;margin:2px 0 6px}
+.vg-author .ct{font-size:13.5px;color:#00734f;font-weight:600}
+
+/* ---------- FAQ (Accordion, ohne JS) ---------- */
+.vg-faq{margin:12px 0}
+.vg-faq__i{border:1px solid #e2ede8;border-radius:12px;margin-bottom:10px;background:#fff;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.vg-faq__i[open]{border-color:#bfe6d5;box-shadow:0 4px 14px rgba(0,120,85,.08)}
+.vg-faq__q{list-style:none;cursor:pointer;font-weight:800;color:#0b2b23;font-size:16px;padding:16px 48px 16px 18px;position:relative;line-height:1.35}
+.vg-faq__q::-webkit-details-marker{display:none}
+.vg-faq__q::after{content:"+";position:absolute;right:16px;top:14px;width:26px;height:26px;line-height:24px;text-align:center;border-radius:50%;background:#e8f7ef;color:#00a075;font-size:20px;font-weight:400;transition:background .15s,color .15s}
+.vg-faq__i[open] .vg-faq__q{color:#00734f}
+.vg-faq__i[open] .vg-faq__q::after{content:"\2013";background:#00a075;color:#fff}
+.vg-faq__a{padding:0 18px 16px;color:#3f524b;font-size:15px;line-height:1.6}
+
+/* ---------- Mehr zum Thema (Link-Kacheln) ---------- */
+.vg-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px;margin:14px 0 6px}
+.vg-rel{display:flex;align-items:center;gap:8px;border:1px solid #dce9e3;border-radius:12px;padding:14px 16px;background:#fbfefc;color:#0b2b23;font-weight:700;font-size:14.5px;text-decoration:none;line-height:1.35;transition:border-color .15s,box-shadow .15s,transform .05s}
+.vg-rel:hover{border-color:#00a075;box-shadow:0 6px 16px rgba(0,160,117,.13);transform:translateY(-2px)}
+.vg-rel::before{content:"→";color:#00a075;font-weight:900;flex:0 0 auto}
+
+@media(max-width:640px){
+  .vg-vs,.vg-tiers,.vg-dec{grid-template-columns:1fr}
+  .vg-bar{grid-template-columns:104px 1fr;gap:9px}
+  .vg-scale{grid-template-columns:1fr;gap:10px}
+  .vg-hero{padding:26px 20px}
+}
