@@ -1,0 +1,38 @@
+<!--
+  ============================================================================
+  AUTOREN-BOX "Über den Autor" - wiederverwendbares Snippet
+  ============================================================================
+  ZWECK: Vertrauenssignal (E-E-A-T) unter jedem Ratgeber-Artikel.
+  EINFUEGEN: Diesen kompletten Block am Ende des Artikel-Inhalts einfuegen,
+             direkt vor dem Footer bzw. vor dem abschliessenden CTA.
+             Der Block ist self-contained (eigenes Inline-CSS, feste Klassen
+             mit Praefix "abx-"), er kollidiert nicht mit den bestehenden
+             vg-* oder site-Klassen und funktioniert auf jeder Seite.
+  BILD:   /ansprechpartner.png liegt bereits im Repo-Root. Pfad mit fuehrendem
+          "/" nicht aendern, damit das Bild auch aus Unterordnern laedt.
+  LINK:   Verweist auf die Autorenseite /autor/steven-zupp.
+  ============================================================================
+-->
+<aside class="abx" aria-label="Über den Autor">
+  <style>
+    .abx{display:flex;gap:1.1rem;align-items:flex-start;max-width:760px;margin:2.2rem auto;padding:1.2rem 1.3rem;background:#f6faf8;border:1px solid #e4efe9;border-radius:16px;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:#213a32;line-height:1.6}
+    .abx__img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #dff3eb;flex:0 0 auto}
+    .abx__body{flex:1;min-width:0}
+    .abx__label{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#5a726a;font-weight:700;margin:0 0 .15rem}
+    .abx__name{font-size:18px;font-weight:800;margin:0 0 .1rem}
+    .abx__role{font-size:14px;color:#4a5b55;font-weight:600;margin:0 0 .5rem}
+    .abx__text{font-size:14.5px;margin:0 0 .7rem}
+    .abx__link{display:inline-block;font-weight:700;color:#1f7a5a;text-decoration:none}
+    .abx__link:hover{text-decoration:underline}
+    @media(max-width:520px){.abx{flex-direction:column}.abx__img{width:64px;height:64px}}
+  </style>
+  <img class="abx__img" src="/ansprechpartner.png" alt="Steven Zupp, Tierversicherungsexperte der HanseMerkur" width="72" height="72">
+  <div class="abx__body">
+    <p class="abx__label">Über den Autor</p>
+    <p class="abx__name">Steven Zupp</p>
+    <p class="abx__role">Tierversicherungsexperte · Regional-Geschäftsstellenleiter der HanseMerkur · gebundener Versicherungsvertreter (§ 34d Abs. 7 GewO), Potsdam</p>
+    <p class="abx__text">Steven Zupp ist Regional-Geschäftsstellenleiter der HanseMerkur in Potsdam und gebundener Versicherungsvertreter nach § 34d Abs. 7 GewO. Mit über 15 Jahren Erfahrung in der Versicherungsberatung ist er auf die Absicherung von Hund und Katze spezialisiert. Als persönlicher Ansprechpartner begleitet er Tierhalter von der ersten Frage bis zum passenden Tarif, verständlich, ehrlich und ohne anonyme Hotline.</p>
+    <p style="margin:0 0 .6rem;font-size:14px">📞 <a class="abx__link" href="tel:+498000023465">0800 0023465</a> · 💬 <a class="abx__link" href="https://wa.me/491727641294">WhatsApp +49 172 7641294</a> · ✉️ <a class="abx__link" href="mailto:Steven.Zupp@hansemerkur.de">Steven.Zupp@hansemerkur.de</a></p>
+    <a class="abx__link" href="/autor/steven-zupp">Mehr über Steven Zupp →</a>
+  </div>
+</aside>
