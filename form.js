@@ -194,10 +194,10 @@
   function collectFormData() {
     const data = {};
 
-    // Hidden UTM fields — immer senden, auch wenn leer
+    // Hidden UTM fields
     UTM_KEYS.forEach(key => {
       const el = document.getElementById(key);
-      data[key] = el ? el.value : '';
+      if (el && el.value) data[key] = el.value;
     });
 
     // Text / email / tel / date inputs → name attribute (preferred) or label as key
@@ -243,9 +243,6 @@
     // gclid — direkt aus localStorage, immer im Payload
     data.gclid = new URLSearchParams(window.location.search).get('gclid') || localStorage.getItem('gclid') || '';
 
-    // lead_source — aus URL-Parameter, Fallback: website
-    data.lead_source = new URLSearchParams(window.location.search).get('lead_source') || 'website';
-
     // Meta
     const page = window.location.pathname.split('/').pop() || '';
     data.formular = page.includes('katze') ? 'Katze' : page.includes('hund') ? 'Hund' : 'Allgemein';
@@ -257,7 +254,7 @@
   }
 
   /* ── Submit ──────────────────────────────────────────────── */
-  const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/unc3vyb/';
+  const WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26752793/4365bgo/';
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -269,9 +266,12 @@
     const payload = collectFormData();
     const body = new URLSearchParams(payload).toString();
 
+    // Send ONCE via sendBeacon (most reliable, fire-and-forget)
     if (navigator.sendBeacon) {
-      navigator.sendBeacon(WEBHOOK, new Blob([body], { type: 'application/x-www-form-urlencoded' }));
+      navigator.sendBeacon(WEBHOOK, new Blob([body],
+        { type: 'application/x-www-form-urlencoded' }));
     } else {
+      // Fallback only if sendBeacon not available
       try {
         await fetch(WEBHOOK, {
           method: 'POST',
@@ -294,8 +294,28 @@
     window.location.href = utmString ? `danke.html?${utmString}` : 'danke.html';
   });
 
+  /* ── Tier-Alter: max. 8 Jahre ───────────────────────────── */
+  function setTierAlterLimit() {
+    const input = form.querySelector('input[name="geburtsdatum_tier"]');
+    if (!input) return;
+    const today = new Date();
+    input.max = today.toISOString().split('T')[0];
+    const minDate = new Date(today.getFullYear() - 8, today.getMonth(), today.getDate());
+    input.min = minDate.toISOString().split('T')[0];
+    input.addEventListener('change', () => {
+      const val = new Date(input.value);
+      if (val < minDate) {
+        input.classList.add('is-invalid');
+        const err = input.closest('.form-field')?.querySelector('.field-error');
+        if (err) { err.textContent = 'Das Tier darf nicht älter als 8 Jahre sein.'; err.classList.add('is-visible'); }
+        input.value = '';
+      }
+    });
+  }
+
   /* ── Init ────────────────────────────────────────────────── */
   populateUtmFields();
+  setTierAlterLimit();
   showStep(0);
 
 })();
